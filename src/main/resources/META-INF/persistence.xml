@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="edu.itssnpp_ITSMarket_jar_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>edu.itssnpp.itsmarket.entidades.Deposito</class>
+    <class>edu.itssnpp.itsmarket.entidades.Funcionalidad</class>
+    <class>edu.itssnpp.itsmarket.entidades.Stock</class>
+    <class>edu.itssnpp.itsmarket.entidades.Timbrado</class>
+    <class>edu.itssnpp.itsmarket.entidades.Ciudad</class>
+    <class>edu.itssnpp.itsmarket.entidades.DetalleMovimientoCaja</class>
+    <class>edu.itssnpp.itsmarket.entidades.Proveedor</class>
+    <class>edu.itssnpp.itsmarket.entidades.CategoriaCliente</class>
+    <class>edu.itssnpp.itsmarket.entidades.MovimientoCaja</class>
+    <class>edu.itssnpp.itsmarket.entidades.Empleado</class>
+    <class>edu.itssnpp.itsmarket.entidades.MedioPago</class>
+    <class>edu.itssnpp.itsmarket.entidades.CuotaVenta</class>
+    <class>edu.itssnpp.itsmarket.entidades.Cliente</class>
+    <class>edu.itssnpp.itsmarket.entidades.Producto</class>
+    <class>edu.itssnpp.itsmarket.entidades.DetalleVenta</class>
+    <class>edu.itssnpp.itsmarket.entidades.Cargo</class>
+    <class>edu.itssnpp.itsmarket.entidades.Compra</class>
+    <class>edu.itssnpp.itsmarket.entidades.DetallePago</class>
+    <class>edu.itssnpp.itsmarket.entidades.DetalleCompra</class>
+    <class>edu.itssnpp.itsmarket.entidades.UnidadMedida</class>
+    <class>edu.itssnpp.itsmarket.entidades.Venta</class>
+    <class>edu.itssnpp.itsmarket.entidades.DetalleCobro</class>
+    <class>edu.itssnpp.itsmarket.entidades.Promocion</class>
+    <class>edu.itssnpp.itsmarket.entidades.Marca</class>
+    <class>edu.itssnpp.itsmarket.entidades.CategoriaProducto</class>
+    <class>edu.itssnpp.itsmarket.entidades.CuotaCompra</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ITSMarket?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="123456"/>
+    </properties>
+  </persistence-unit>
+</persistence>

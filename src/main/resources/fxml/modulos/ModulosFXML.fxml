@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.itssnpp.itsmarket.modulos.ModulosFXMLController">
-    
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="edu.itssnpp.itsmarket.modulos.ModulosFXMLController">
+   <children>
+      <MenuBar layoutX="73.0" layoutY="31.0" prefHeight="29.0" prefWidth="102.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="MODULOS">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Vendedor" />
+                  <MenuItem mnemonicParsing="false" text="Proveedor" />
+                  <MenuItem mnemonicParsing="false" text="Cliente" />
+                  <MenuItem mnemonicParsing="false" text="Empleado" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ComboBox layoutX="55.0" layoutY="101.0" prefWidth="150.0" />
+   </children>
 </AnchorPane>

@@ -1,26 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="edu.itssnpp.itsmarket.modulos.ModulosFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="545.0" prefWidth="715.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="edu.itssnpp.itsmarket.modulos.ModulosFXMLController">
    <children>
-      <MenuBar layoutX="73.0" layoutY="31.0" prefHeight="29.0" prefWidth="102.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="MODULOS">
-            <items>
-                  <MenuItem mnemonicParsing="false" text="Vendedor" />
-                  <MenuItem mnemonicParsing="false" text="Proveedor" />
-                  <MenuItem mnemonicParsing="false" text="Cliente" />
-                  <MenuItem mnemonicParsing="false" text="Empleado" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-      <ComboBox layoutX="55.0" layoutY="101.0" prefWidth="150.0" />
+      <ComboBox fx:id="modulos" layoutX="53.0" layoutY="156.0" prefWidth="150.0" />
+      <Label layoutX="68.0" layoutY="33.0" prefHeight="26.0" prefWidth="141.0" text="Usuario">
+         <font>
+            <Font name="System Italic" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="116.0" prefHeight="26.0" prefWidth="141.0" text="Módulos">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="usuario" layoutX="47.0" layoutY="69.0" prefWidth="150.0" />
+      <ListView layoutX="39.0" layoutY="234.0" prefHeight="236.0" prefWidth="200.0" />
+      <ListView layoutX="368.0" layoutY="69.0" prefHeight="236.0" prefWidth="200.0" />
+      <Label layoutX="64.0" layoutY="195.0" prefHeight="26.0" prefWidth="176.0" text="Funcionalidad">
+         <font>
+            <Font name="System Italic" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="375.0" layoutY="33.0" prefHeight="26.0" prefWidth="186.0" text="Permisos Otorgados">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="agregar" layoutX="108.0" layoutY="491.0" mnemonicParsing="false" onAction="#OnActionAgregar" text="Agregar" />
+      <Button fx:id="eliminar" layoutX="455.0" layoutY="315.0" mnemonicParsing="false" onAction="#OnActionEliminar" text="Eliminar" />
    </children>
 </AnchorPane>

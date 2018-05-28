@@ -11,7 +11,9 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -31,16 +33,25 @@ public class Funcionalidad implements Serializable {
     @Basic(optional = false)
     @Column(name = "idfuncionalidad")
     private Integer idfuncionalidad;
+    @Basic(optional = false)
     @Column(name = "nombre")
     private String nombre;
     @ManyToMany(mappedBy = "funcionalidadList")
     private List<Empleado> empleadoList;
+    @JoinColumn(name = "modulo", referencedColumnName = "idmodulo")
+    @ManyToOne(optional = false)
+    private Modulo modulo;
 
     public Funcionalidad() {
     }
 
     public Funcionalidad(Integer idfuncionalidad) {
         this.idfuncionalidad = idfuncionalidad;
+    }
+
+    public Funcionalidad(Integer idfuncionalidad, String nombre) {
+        this.idfuncionalidad = idfuncionalidad;
+        this.nombre = nombre;
     }
 
     public Integer getIdfuncionalidad() {
@@ -65,6 +76,14 @@ public class Funcionalidad implements Serializable {
 
     public void setEmpleadoList(List<Empleado> empleadoList) {
         this.empleadoList = empleadoList;
+    }
+
+    public Modulo getModulo() {
+        return modulo;
+    }
+
+    public void setModulo(Modulo modulo) {
+        this.modulo = modulo;
     }
 
     @Override

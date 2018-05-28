@@ -28,6 +28,7 @@
     <class>edu.itssnpp.itsmarket.entidades.Marca</class>
     <class>edu.itssnpp.itsmarket.entidades.CategoriaProducto</class>
     <class>edu.itssnpp.itsmarket.entidades.CuotaCompra</class>
+    <class>edu.itssnpp.itsmarket.entidades.Modulo</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ITSMarket?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

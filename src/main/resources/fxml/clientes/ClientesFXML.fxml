@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,21 +14,26 @@
             <Font name="System Bold" size="26.0" />
          </font>
       </Label>
-      <TextField layoutX="112.0" layoutY="81.0" prefHeight="19.0" prefWidth="261.0" />
+      <TextField fx:id="nombre" layoutX="112.0" layoutY="81.0" prefHeight="19.0" prefWidth="261.0" />
       <Label layoutX="35.0" layoutY="86.0" text="Nombres:" />
-      <TextField layoutX="112.0" layoutY="116.0" prefHeight="26.0" prefWidth="261.0" />
+      <TextField fx:id="apellido" layoutX="112.0" layoutY="116.0" prefHeight="26.0" prefWidth="261.0" />
       <Label layoutX="34.0" layoutY="121.0" text="Apellidos:" />
-      <TextField layoutX="112.0" layoutY="148.0" prefHeight="26.0" prefWidth="261.0" />
+      <TextField fx:id="cinro" layoutX="112.0" layoutY="148.0" prefHeight="26.0" prefWidth="261.0" />
       <Label layoutX="44.0" layoutY="153.0" text="CI Nro:" />
       <Label layoutX="38.0" layoutY="189.0" text="DV-RUC:" />
-      <TextField layoutX="112.0" layoutY="184.0" prefHeight="26.0" prefWidth="261.0" />
+      <TextField fx:id="dvruc" layoutX="112.0" layoutY="184.0" prefHeight="26.0" prefWidth="261.0" />
       <Label layoutX="36.0" layoutY="223.0" text="Teléfono:" />
-      <TextField layoutX="112.0" layoutY="218.0" prefHeight="26.0" prefWidth="261.0" />
+      <TextField fx:id="telefono" layoutX="112.0" layoutY="218.0" prefHeight="26.0" prefWidth="261.0" />
       <Label layoutX="36.0" layoutY="255.0" text="Dirección:" />
-      <TextField layoutX="112.0" layoutY="250.0" prefHeight="26.0" prefWidth="694.0" />
-      <Label layoutX="36.0" layoutY="290.0" text="E-Mail:" />
-      <TextField layoutX="112.0" layoutY="285.0" prefHeight="26.0" prefWidth="406.0" />
+      <TextField fx:id="direccion" layoutX="112.0" layoutY="250.0" prefHeight="26.0" prefWidth="694.0" />
+      <Label layoutX="35.0" layoutY="329.0" text="E-Mail:" />
+      <TextField fx:id="email" layoutX="110.0" layoutY="324.0" prefHeight="26.0" prefWidth="406.0" />
       <Label layoutX="465.0" layoutY="78.0" text="Id del Cliente:" />
-      <TextField layoutX="566.0" layoutY="73.0" prefHeight="26.0" prefWidth="129.0" />
+      <TextField fx:id="idcliente" layoutX="566.0" layoutY="73.0" prefHeight="26.0" prefWidth="129.0" />
+      <Button fx:id="button" layoutX="664.0" layoutY="422.0" mnemonicParsing="false" onAction="#agregar" text="Agregar" />
+      <ComboBox layoutX="112.0" layoutY="360.0" prefWidth="150.0" />
+      <Label layoutX="35.0" layoutY="365.0" text="Categoría" />
+      <Label layoutX="42.0" layoutY="291.0" text="Ciudad:" />
+      <ComboBox fx:id="ciudad" layoutX="112.0" layoutY="286.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

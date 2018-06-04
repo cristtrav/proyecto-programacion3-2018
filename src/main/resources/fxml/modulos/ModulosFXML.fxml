@@ -33,7 +33,7 @@
       </Label>
       <Button fx:id="agregar" layoutX="108.0" layoutY="491.0" mnemonicParsing="false" onAction="#OnActionAgregar" text="Agregar" />
       <Button fx:id="eliminar" layoutX="455.0" layoutY="315.0" mnemonicParsing="false" onAction="#OnActionEliminar" text="Eliminar" />
-      <ComboBox fx:id="box" layoutX="60.0" layoutY="77.0" prefWidth="150.0" />
+      <ComboBox fx:id="box" layoutX="60.0" layoutY="77.0" onAction="#usuario" prefWidth="150.0" />
       <ComboBox fx:id="box2" layoutX="60.0" layoutY="161.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

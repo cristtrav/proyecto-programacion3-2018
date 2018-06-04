@@ -22,12 +22,16 @@ public class ModulosFXMLController implements Initializable {
     private ComboBox<?> box2;
 
     
+    
+    
+    
+    
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        
-       
-    }    
+      }    
 
     @FXML
     private void OnActionAgregar(ActionEvent event) {
@@ -38,5 +42,11 @@ public class ModulosFXMLController implements Initializable {
     private void OnActionEliminar(ActionEvent event) {
         
     }
+
+    @FXML
+    private void usuario(ActionEvent event) {
+       
+    }
+    
     
 }

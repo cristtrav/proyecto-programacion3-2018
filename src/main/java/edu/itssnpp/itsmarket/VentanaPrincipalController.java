@@ -51,4 +51,10 @@ public class VentanaPrincipalController implements Initializable {
             errDlg.showAndWait();
         }
     }
+
+    @FXML
+    private void OnActionModulos(ActionEvent event) {
+        this.cargarModulo("/fxml/modulos/ModulosFXML.fxml", "Modulos");
+        
+    }
 }

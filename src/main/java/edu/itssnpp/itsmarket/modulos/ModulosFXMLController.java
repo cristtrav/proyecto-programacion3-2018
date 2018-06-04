@@ -17,24 +17,20 @@ public class ModulosFXMLController implements Initializable {
     @FXML
     private Button agregar;
     @FXML
-    private ComboBox<?> box;
+    private ComboBox<String> box;
     @FXML
-    private ComboBox<?> box2;
+    private ComboBox<String> box2;
 
-    
-    
-    
-    
-    
-    
-    
-    @Override
+     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+         box.getItems().addAll("Administrador","Gerente","Vendedor");
+         box2.getItems().addAll("Ventas","Compras","Facturas","Producto","Promocion",
+         "Cliente","Empleado","Movimiento de Caja","Proveedor");
       }    
 
     @FXML
     private void OnActionAgregar(ActionEvent event) {
+        
         
     }
 
@@ -42,6 +38,9 @@ public class ModulosFXMLController implements Initializable {
     private void OnActionEliminar(ActionEvent event) {
         
     }
+
+
+
 
     
     

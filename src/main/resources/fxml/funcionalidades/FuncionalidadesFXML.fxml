@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="edu.itssnpp.itsmarket.funcionalidades.FuncionalidadesFXMLController">
+   <children>
+      <Label layoutX="192.0" layoutY="39.0" prefHeight="41.0" prefWidth="182.0" text="FUNCIONALIDAD">
+         <font>
+            <Font name="padmaa-Bold.1.1" size="21.0" />
+         </font>
+      </Label>
+      <TableView layoutX="35.0" layoutY="80.0" prefHeight="251.0" prefWidth="218.0">
+        <columns>
+          <TableColumn prefWidth="217.0" text="FUNCIONES" />
+        </columns>
+      </TableView>
+      <Button layoutX="64.0" layoutY="344.0" mnemonicParsing="false" text="Quitar" />
+      <Button layoutX="152.0" layoutY="344.0" mnemonicParsing="false" text="Editar" />
+      <Button layoutX="438.0" layoutY="142.0" mnemonicParsing="false" text="Agregar" />
+      <TextField layoutX="338.0" layoutY="100.0" />
+   </children>
+</AnchorPane>

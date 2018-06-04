@@ -43,10 +43,6 @@ public class ModulosFXMLController implements Initializable {
         
     }
 
-    @FXML
-    private void usuario(ActionEvent event) {
-       
-    }
     
     
 }

@@ -13,17 +13,18 @@ import javafx.scene.control.ComboBox;
 public class ModulosFXMLController implements Initializable {
 
     @FXML
-    private ComboBox<?> modulos;
-    @FXML
-    private ComboBox<?> usuario;
-    @FXML
     private Button eliminar;
     @FXML
     private Button agregar;
+    @FXML
+    private ComboBox<?> box;
+    @FXML
+    private ComboBox<?> box2;
 
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         
        
     }    

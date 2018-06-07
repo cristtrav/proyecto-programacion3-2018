@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="545.0" prefWidth="715.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.itssnpp.itsmarket.modulos.ModulosFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="545.0" prefWidth="715.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.itssnpp.itsmarket.permisos.PermisosFXMLController">
    <children>
       <Label layoutX="68.0" layoutY="33.0" prefHeight="26.0" prefWidth="141.0" text="Usuario">
          <font>
@@ -19,8 +19,8 @@
             <Font name="System Italic" size="20.0" />
          </font>
       </Label>
-      <ListView layoutX="39.0" layoutY="234.0" prefHeight="236.0" prefWidth="200.0" />
-      <ListView layoutX="368.0" layoutY="69.0" prefHeight="236.0" prefWidth="200.0" />
+      <ListView fx:id="list1" layoutX="39.0" layoutY="234.0" prefHeight="236.0" prefWidth="200.0" />
+      <ListView fx:id="list2" layoutX="368.0" layoutY="69.0" prefHeight="236.0" prefWidth="200.0" />
       <Label layoutX="64.0" layoutY="195.0" prefHeight="26.0" prefWidth="176.0" text="Funcionalidad">
          <font>
             <Font name="System Italic" size="19.0" />
@@ -31,9 +31,9 @@
             <Font name="System Italic" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="agregar" layoutX="108.0" layoutY="491.0" mnemonicParsing="false" onAction="#OnActionAgregar" text="Agregar" />
-      <Button fx:id="eliminar" layoutX="455.0" layoutY="315.0" mnemonicParsing="false" onAction="#OnActionEliminar" text="Eliminar" />
-      <ComboBox fx:id="box" layoutX="60.0" layoutY="77.0" prefWidth="150.0" />
+      <Button fx:id="agregar" layoutX="108.0" layoutY="491.0" mnemonicParsing="false" onAction="#Agregar" text="Agregar" />
+      <Button fx:id="eliminar" layoutX="455.0" layoutY="315.0" mnemonicParsing="false" onAction="#Eliminar" text="Eliminar" />
+      <ComboBox fx:id="box1" layoutX="60.0" layoutY="77.0" prefWidth="150.0" />
       <ComboBox fx:id="box2" layoutX="60.0" layoutY="161.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

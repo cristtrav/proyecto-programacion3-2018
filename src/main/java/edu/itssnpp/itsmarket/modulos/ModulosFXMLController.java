@@ -23,9 +23,7 @@ public class ModulosFXMLController implements Initializable {
 
      @Override
     public void initialize(URL url, ResourceBundle rb) {
-         box.getItems().addAll("Administrador","Gerente","Vendedor");
-         box2.getItems().addAll("Ventas","Compras","Facturas","Producto","Promocion",
-         "Cliente","Empleado","Movimiento de Caja","Proveedor");
+       
       }    
 
     @FXML

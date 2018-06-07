@@ -16,14 +16,14 @@
             <Font name="padmaa-Bold.1.1" size="21.0" />
          </font>
       </Label>
-      <TableView layoutX="35.0" layoutY="80.0" prefHeight="251.0" prefWidth="218.0">
+      <TableView fx:id="tabla" layoutX="35.0" layoutY="80.0" prefHeight="251.0" prefWidth="218.0">
         <columns>
           <TableColumn prefWidth="217.0" text="FUNCIONES" />
         </columns>
       </TableView>
-      <Button layoutX="64.0" layoutY="344.0" mnemonicParsing="false" text="Quitar" />
-      <Button layoutX="152.0" layoutY="344.0" mnemonicParsing="false" text="Editar" />
-      <Button layoutX="438.0" layoutY="142.0" mnemonicParsing="false" text="Agregar" />
-      <TextField layoutX="338.0" layoutY="100.0" />
+      <Button fx:id="but1" layoutX="64.0" layoutY="344.0" mnemonicParsing="false" onAction="#quitar" text="Quitar" />
+      <Button fx:id="but2" layoutX="152.0" layoutY="344.0" mnemonicParsing="false" onAction="#editar" text="Editar" />
+      <Button fx:id="but3" layoutX="438.0" layoutY="142.0" mnemonicParsing="false" onAction="#agrega" text="Agregar" />
+      <TextField fx:id="txf" layoutX="338.0" layoutY="100.0" />
    </children>
 </AnchorPane>

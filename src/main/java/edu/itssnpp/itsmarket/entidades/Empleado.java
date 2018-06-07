@@ -51,6 +51,8 @@ public class Empleado implements Serializable {
     private String direccion;
     @Column(name = "email")
     private String email;
+    @Column(name = "password")
+    private String password;
     @JoinTable(name = "permiso", joinColumns = {
         @JoinColumn(name = "empleado", referencedColumnName = "idempleado")}, inverseJoinColumns = {
         @JoinColumn(name = "funcionalidad", referencedColumnName = "idfuncionalidad")})
@@ -130,6 +132,14 @@ public class Empleado implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public List<Funcionalidad> getFuncionalidadList() {

@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
@@ -50,5 +51,15 @@ public class VentanaPrincipalController implements Initializable {
             errDlg.setContentText(ex.getMessage());
             errDlg.showAndWait();
         }
+    }
+
+    @FXML
+    private void onActiononClientes(ActionEvent event) {
+        this.cargarModulo("/fxml/clientes/ClientesFXML.fxml", "Clientes");
+    }
+
+    @FXML
+    private void onActionOnCategoriaCliente(ActionEvent event) {
+        this.cargarModulo("/fxml/categorias/CategoriasFXML.fxml", "Categoría Cliente");
     }
 }

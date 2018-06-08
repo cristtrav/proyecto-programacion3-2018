@@ -47,6 +47,7 @@ public class ClientesFXMLController implements Initializable {
 
     @FXML
     private void agregar(ActionEvent event) {
+        
     }
     
 }

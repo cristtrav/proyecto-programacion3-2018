@@ -9,12 +9,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="545.0" prefWidth="715.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.itssnpp.itsmarket.permisos.PermisosFXMLController">
    <children>
-      <Label layoutX="68.0" layoutY="33.0" prefHeight="26.0" prefWidth="141.0" text="Usuario">
-         <font>
-            <Font name="System Italic" size="22.0" />
-         </font>
-      </Label>
-      <Label layoutX="64.0" layoutY="116.0" prefHeight="26.0" prefWidth="141.0" text="Módulos">
+      <Label layoutX="65.0" layoutY="56.0" prefHeight="26.0" prefWidth="141.0" text="Modulos">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
@@ -33,7 +28,6 @@
       </Label>
       <Button fx:id="agregar" layoutX="108.0" layoutY="491.0" mnemonicParsing="false" onAction="#Agregar" text="Agregar" />
       <Button fx:id="eliminar" layoutX="455.0" layoutY="315.0" mnemonicParsing="false" onAction="#Eliminar" text="Eliminar" />
-      <ComboBox fx:id="box1" layoutX="60.0" layoutY="77.0" prefWidth="150.0" />
-      <ComboBox fx:id="box2" layoutX="60.0" layoutY="161.0" prefWidth="150.0" />
+      <ComboBox fx:id="box2" layoutX="56.0" layoutY="95.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

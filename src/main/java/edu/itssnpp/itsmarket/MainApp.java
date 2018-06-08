@@ -1,5 +1,6 @@
 package edu.itssnpp.itsmarket;
 
+import edu.itssnpp.itsmarket.util.DatosFijos;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +13,7 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/VentanaPrincipal.fxml"));
         
         Scene scene = new Scene(root);
@@ -20,6 +22,8 @@ public class MainApp extends Application {
         stage.setTitle("JavaFX and Maven");
         stage.setScene(scene);
         stage.show();
+        DatosFijos.verificarModulos();
+        DatosFijos.verificarFuncionalidades();
     }
 
    

@@ -12,7 +12,7 @@ public class DatosFijos {
     public static final Modulo MODULO_CLIENTES = new Modulo();
     public static final Modulo MODULO_CATEGORIA_CLIENTES = new Modulo();
     public static final Modulo MODULO_PRODUCTO = new Modulo();
-
+    
     //Funcionalidades
     public static final Funcionalidad FUNCIONALIDAD_REGISTRAR_CLIENTES = new Funcionalidad();
 

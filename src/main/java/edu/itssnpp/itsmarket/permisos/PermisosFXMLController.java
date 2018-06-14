@@ -35,6 +35,7 @@ public class PermisosFXMLController implements Initializable {
     private void Agregar(ActionEvent event) {
         
         
+        
     }
 
     @FXML

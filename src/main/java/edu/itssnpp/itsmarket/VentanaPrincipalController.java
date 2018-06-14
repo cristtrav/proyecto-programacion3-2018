@@ -31,13 +31,13 @@ public class VentanaPrincipalController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        this.cargarModulo("/fxml/login/login.fxml", "Login");
     }
 
     private void cargarModulo(String direccionFXML, String tituloPestania) {
         try {
             FXMLLoader loader = new FXMLLoader();
-            AnchorPane root = FXMLLoader.load(getClass().getResource(direccionFXML));
+            AnchorPane root = loader.load(getClass().getResourceAsStream(direccionFXML));
             Tab t=new Tab();
             t.setText(tituloPestania);
             t.setContent(root);

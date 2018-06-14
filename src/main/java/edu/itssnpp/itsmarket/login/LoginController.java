@@ -48,7 +48,7 @@ public class LoginController implements Initializable {
     };
     @FXML
     private Button aiudaaa;
-
+    /*ayudaaaa
     /**
      * Initializes the controller class.
      *

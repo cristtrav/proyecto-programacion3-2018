@@ -14,6 +14,7 @@ public class DatosFijos {
     public static final Modulo MODULO_PRODUCTO = new Modulo();
     public static final Modulo MODULO_CATEGORIA_PRODUCTO = new Modulo();
     public static final Modulo MODULO_COMPRA = new Modulo();
+    public static final Modulo MODULO_EMPLEADO = new Modulo();
     
 
     //Funcionalidades
@@ -46,7 +47,8 @@ public class DatosFijos {
         FUNCIONALIDAD_MODIFICAR_CLIENTES.setNombre("Modificar");
         FUNCIONALIDAD_MODIFICAR_CLIENTES.setModulo(MODULO_CLIENTES);
     }
-
+    
+    //FUNCIONALIDADES
     public static final Funcionalidad FUNCIONALIDAD_ELIMINAR_CLIENTES = new Funcionalidad();
     static {
 
@@ -60,7 +62,8 @@ public class DatosFijos {
         FUNCIONALIDAD_ELIMINAR_CLIENTES.setModulo(MODULO_CLIENTES);
 
     }
-
+    
+    //FUNCIONALIDADES
     public static final Funcionalidad FUNCIONALIDAD_REGISTRAR_PRODUCTO = new Funcionalidad();
 
     static {
@@ -79,7 +82,6 @@ public class DatosFijos {
     
     //Funcionalidades
     public static final Funcionalidad FUNCIONALIDAD_MODIFICAR_PRODUCTO = new Funcionalidad();
-
     static {
 
         //inicializa los modulos
@@ -92,10 +94,10 @@ public class DatosFijos {
         FUNCIONALIDAD_MODIFICAR_PRODUCTO.setModulo(MODULO_PRODUCTO);
     }
     
+    
     //Funcionalidades
      public static final Funcionalidad FUNCIONALIDAD_ELIMINAR_PRODUCTO= new Funcionalidad();
-
-    static {
+     static {
 
         //Incializa los modulos
         MODULO_CLIENTES.setIdmodulo(3);
@@ -115,8 +117,8 @@ public class DatosFijos {
     static {
 
         //Inicializa los modulos
-        MODULO_CLIENTES.setIdmodulo(5);
-        MODULO_CLIENTES.setNombre("Compra");
+        MODULO_COMPRA.setIdmodulo(5);
+        MODULO_COMPRA.setNombre("Compra");
 
         //Se inicializan las funcionalidades
         FUNCIONALIDAD_REGISTRAR_COMPRA.setIdfuncionalidad(7);
@@ -124,14 +126,13 @@ public class DatosFijos {
         FUNCIONALIDAD_REGISTRAR_COMPRA.setModulo(MODULO_COMPRA);
     }
     
-    
+        //FUNCIONALIDADES
       public static final Funcionalidad FUNCIONALIDAD_MODIFICAR_COMPRA = new Funcionalidad();
-
-    static {
+      static {
 
         //inicializa los modulos
-        MODULO_PRODUCTO.setIdmodulo(5);
-        MODULO_PRODUCTO.setNombre("Compra");
+        MODULO_COMPRA.setIdmodulo(5);
+        MODULO_COMPRA.setNombre("Compra");
 
         //Se inicializa las Funcionalidades
         FUNCIONALIDAD_MODIFICAR_COMPRA.setIdfuncionalidad(8);
@@ -139,7 +140,63 @@ public class DatosFijos {
         FUNCIONALIDAD_MODIFICAR_COMPRA.setModulo(MODULO_COMPRA);
     }
 
+     //FUNCIONALIDADES
+     public static final Funcionalidad FUNCIONALIDAD_ELIMINAR_COMPRA = new Funcionalidad();
+     static {
 
+        //Inicializa los Modulos
+        MODULO_COMPRA.setIdmodulo(5);
+        MODULO_COMPRA.setNombre("Compra");
+
+        //Se inicializa las Funcionalidades
+        FUNCIONALIDAD_MODIFICAR_COMPRA.setIdfuncionalidad(9);
+        FUNCIONALIDAD_MODIFICAR_COMPRA.setNombre("Eliminar");
+        FUNCIONALIDAD_MODIFICAR_COMPRA.setModulo(MODULO_COMPRA);
+    }
+     
+     //Funcionalidades
+    public static final Funcionalidad FUNCIONALIDAD_REGISTRAR_EMPLEADO = new Funcionalidad();
+    static {
+
+        //Inicializa los modulos
+        MODULO_EMPLEADO.setIdmodulo(6);
+        MODULO_EMPLEADO.setNombre("Empleado");
+
+        //Se inicializan las funcionalidades
+        FUNCIONALIDAD_REGISTRAR_EMPLEADO.setIdfuncionalidad(10);
+        FUNCIONALIDAD_REGISTRAR_EMPLEADO.setNombre("Registrar");
+        FUNCIONALIDAD_REGISTRAR_EMPLEADO.setModulo(MODULO_EMPLEADO);
+    }
+    
+     //Funcionalidades
+    public static final Funcionalidad FUNCIONALIDAD_MODIFICAR_EMPLEADO = new Funcionalidad();
+    static {
+
+        //Inicializa los modulos
+        MODULO_EMPLEADO.setIdmodulo(6);
+        MODULO_EMPLEADO.setNombre("Empleado");
+
+        //Se inicializan las funcionalidades
+        FUNCIONALIDAD_MODIFICAR_EMPLEADO.setIdfuncionalidad(11);
+        FUNCIONALIDAD_MODIFICAR_EMPLEADO.setNombre("Modificar");
+        FUNCIONALIDAD_MODIFICAR_EMPLEADO.setModulo(MODULO_EMPLEADO);
+    }
+
+     //Funcionalidades
+    public static final Funcionalidad FUNCIONALIDAD_ELIMINAR_EMPLEADO = new Funcionalidad();
+    static {
+
+        //Inicializa los modulos
+        MODULO_EMPLEADO.setIdmodulo(6);
+        MODULO_EMPLEADO.setNombre("Empleado");
+
+        //Se inicializan las funcionalidades
+        FUNCIONALIDAD_ELIMINAR_EMPLEADO.setIdfuncionalidad(12);
+        FUNCIONALIDAD_ELIMINAR_EMPLEADO.setNombre("Eliminar");
+        FUNCIONALIDAD_ELIMINAR_EMPLEADO.setModulo(MODULO_EMPLEADO);
+    }
+
+    
     public static void verificarModulos() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("edu.itssnpp_ITSMarket_jar_1.0-SNAPSHOTPU");
         EntityManager em = emf.createEntityManager();
@@ -150,6 +207,8 @@ public class DatosFijos {
         em.merge(MODULO_PRODUCTO);
         em.merge(MODULO_CATEGORIA_PRODUCTO);
         em.merge(MODULO_COMPRA);
+        em.merge(MODULO_EMPLEADO);
+        
 
         em.getTransaction().commit();
     }
@@ -168,6 +227,10 @@ public class DatosFijos {
         em.merge(FUNCIONALIDAD_ELIMINAR_PRODUCTO);
         em.merge(FUNCIONALIDAD_REGISTRAR_COMPRA);
         em.merge(FUNCIONALIDAD_MODIFICAR_COMPRA);
+        em.merge(FUNCIONALIDAD_ELIMINAR_COMPRA);
+        em.merge(FUNCIONALIDAD_REGISTRAR_EMPLEADO);
+        em.merge(FUNCIONALIDAD_MODIFICAR_EMPLEADO);
+        em.merge(FUNCIONALIDAD_ELIMINAR_EMPLEADO);
 
         em.getTransaction().commit();
     }

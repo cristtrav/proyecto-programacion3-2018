@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="edu.itssnpp.itsmarket.facturas.FacturasController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.itssnpp.itsmarket.facturas.FacturasController">
    <children>
-      <Text layoutX="92.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cliente:" />
-      <Text layoutX="93.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RUC" />
-      <Text layoutX="93.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Producto:" />
-      <Text layoutX="93.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prec_Unitario:" />
-      <Text layoutX="95.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prec_Unitario:" />
+      <Text layoutX="99.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cliente:" />
+      <Text layoutX="99.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RUC:" />
+      <Text layoutX="99.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Producto:" />
+      <Text layoutX="99.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prec_Unitario:" />
+      <Text layoutX="99.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cantidad:" />
+      <MenuButton layoutX="189.0" layoutY="28.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="171.0" text="MenuButton">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <TextField layoutX="189.0" layoutY="59.0" />
+      <MenuButton layoutX="189.0" layoutY="94.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="171.0" text="MenuButton">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+         </items>
+      </MenuButton>
+      <TextField layoutX="189.0" layoutY="127.0" prefHeight="26.0" prefWidth="91.0" />
+      <TextField layoutX="189.0" layoutY="163.0" prefHeight="26.0" prefWidth="91.0" />
    </children>
 </AnchorPane>

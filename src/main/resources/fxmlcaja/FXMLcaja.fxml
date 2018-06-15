@@ -16,7 +16,7 @@
                         <Button fx:id="abrircaja" layoutY="1.0" mnemonicParsing="false" text="Abrir caja" />
                         <Button fx:id="vertotal" layoutX="163.0" layoutY="1.0" mnemonicParsing="false" text="Ver Total" />
                         <Button fx:id="retirardinero" layoutX="240.0" layoutY="1.0" mnemonicParsing="false" text="Retirar dinero" />
-                        <Button fx:id="cerrarcaja" layoutX="81.0" layoutY="1.0" mnemonicParsing="false" text="Cerrar cja" />
+                        <Button fx:id="cerrarcaja" layoutX="81.0" layoutY="1.0" mnemonicParsing="false" text="Cerrar caja" />
                      </children>
                   </AnchorPane>
             </content>
@@ -26,6 +26,8 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <Button layoutY="1.0" mnemonicParsing="false" text="Ver detalles" />
+                        <Button fx:id="totalperiodo" layoutX="96.0" layoutY="1.0" mnemonicParsing="false" text="Totalizar periodo" />
+                        <Button fx:id="informe" layoutX="224.0" layoutY="1.0" mnemonicParsing="false" text="Informe" />
                      </children>
                   </AnchorPane>
             </content>

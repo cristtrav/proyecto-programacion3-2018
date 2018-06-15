@@ -26,6 +26,10 @@ public class FXMLcajaController implements Initializable {
     private Button retirardinero;
     @FXML
     private Button cerrarcaja;
+    @FXML
+    private Button totalperiodo;
+    @FXML
+    private Button informe;
 
     /**
      * Initializes the controller class.

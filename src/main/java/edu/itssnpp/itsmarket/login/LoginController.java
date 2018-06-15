@@ -17,7 +17,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -31,14 +30,6 @@ public class LoginController implements Initializable {
     private AnchorPane login;
     @FXML
     private AnchorPane loginlabel;
-    @FXML
-    private Button acceder;
-    @FXML
-    private PasswordField contraseña;
-    @FXML
-    private TextField usuario;
-
-    private Image img;
 
     private final ChangeListener<Number> chLnrPosX = (ObservableValue<? extends Number> obs, Number valorAnterior, Number valorNuevo) -> {
         this.loginlabel.setLayoutX((valorNuevo.doubleValue() / 2) - (this.loginlabel.getPrefWidth() / 2));
@@ -47,7 +38,14 @@ public class LoginController implements Initializable {
         this.loginlabel.setLayoutY((valorNuevo.doubleValue() / 2) - (this.loginlabel.getPrefHeight() / 2));
     };
     @FXML
-    private Button aiudaaa;
+    private TextField usuarioTxt;
+    @FXML
+    private PasswordField contraseñaTxt;
+    @FXML
+    private Button aiudaaaBtn;
+    @FXML
+    private Button accederBtn;
+
     /*ayudaaaa
     /**
      * Initializes the controller class.
@@ -59,7 +57,6 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         this.login.widthProperty().addListener(this.chLnrPosX);
         this.login.heightProperty().addListener(this.chLnrPosY);
-        
     }
 
     @FXML
@@ -71,4 +68,8 @@ public class LoginController implements Initializable {
         alert.showAndWait();
     }
 
+    @FXML
+    private void accederA(ActionEvent event) {
+        this.accederBtn.setDisable(false);
+    }
 }

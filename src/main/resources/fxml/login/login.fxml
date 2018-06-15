@@ -31,7 +31,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <TextField fx:id="usuario" prefHeight="26.0" prefWidth="191.0" promptText="Ingrese usuario" />
+                  <TextField fx:id="usuarioTxt" prefHeight="26.0" prefWidth="191.0" promptText="Ingrese usuario" />
                   <HBox prefHeight="17.0" prefWidth="239.0">
                      <children>
                         <Label text="Contraseña">
@@ -40,11 +40,11 @@
                            </font></Label>
                      </children>
                   </HBox>
-                  <PasswordField fx:id="contraseña" prefHeight="26.0" prefWidth="191.0" promptText="Ingrese contraseña" />
+                  <PasswordField fx:id="contraseñaTxt" prefHeight="26.0" prefWidth="191.0" promptText="Ingrese contraseña" />
                   <HBox prefWidth="239.0" spacing="130.0">
                      <children>
-                        <Button fx:id="aiudaaa" mnemonicParsing="false" onAction="#ayuda" text="?" textFill="#0821fc" />
-                        <Button fx:id="acceder" mnemonicParsing="false" opacity="0.84" text="Acceder" />
+                        <Button fx:id="aiudaaaBtn" mnemonicParsing="false" onAction="#ayuda" text="?" textFill="#0821fc" />
+                        <Button fx:id="accederBtn" mnemonicParsing="false" onAction="#accederA" opacity="0.84" text="Acceder" />
                      </children>
                   </HBox>
                </children>

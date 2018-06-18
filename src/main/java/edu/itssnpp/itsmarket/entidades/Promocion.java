@@ -39,7 +39,7 @@ public class Promocion implements Serializable {
     private Integer idpromocion;
     @Basic(optional = false)
     @Column(name = "nombre")
-    private String nombre;
+    public String nombre;
     @Column(name = "porcentaje_descuento")
     private Integer porcentajeDescuento;
     @Column(name = "fecha_inicio")

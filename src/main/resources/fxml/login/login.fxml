@@ -40,7 +40,7 @@
                            </font></Label>
                      </children>
                   </HBox>
-                  <PasswordField fx:id="contraseñaTxt" prefHeight="26.0" prefWidth="191.0" promptText="Ingrese contraseña" />
+                  <PasswordField fx:id="contrasenhaTxt" prefHeight="26.0" prefWidth="191.0" promptText="Ingrese contraseña" />
                   <HBox prefWidth="239.0" spacing="130.0">
                      <children>
                         <Button fx:id="aiudaaaBtn" mnemonicParsing="false" onAction="#ayuda" text="?" textFill="#0821fc" />

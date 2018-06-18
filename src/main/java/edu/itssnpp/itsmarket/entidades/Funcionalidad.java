@@ -11,7 +11,9 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -25,6 +27,10 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(name = "Funcionalidad.findAll", query = "SELECT f FROM Funcionalidad f")})
 public class Funcionalidad implements Serializable {
+
+    @JoinColumn(name = "modulo", referencedColumnName = "idmodulo")
+    @ManyToOne(optional = false)
+    private Modulo modulo;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -90,6 +96,14 @@ public class Funcionalidad implements Serializable {
     @Override
     public String toString() {
         return "edu.itssnpp.itsmarket.entidades.Funcionalidad[ idfuncionalidad=" + idfuncionalidad + " ]";
+    }
+
+    public Modulo getModulo() {
+        return modulo;
+    }
+
+    public void setModulo(Modulo modulo) {
+        this.modulo = modulo;
     }
     
 }

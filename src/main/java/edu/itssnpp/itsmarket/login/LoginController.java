@@ -5,7 +5,9 @@
  */
 package edu.itssnpp.itsmarket.login;
 
+import edu.itssnpp.itsmarket.entidades.Empleado;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -18,6 +20,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 /**
  * FXML Controller class
@@ -40,11 +46,11 @@ public class LoginController implements Initializable {
     @FXML
     private TextField usuarioTxt;
     @FXML
-    private PasswordField contraseñaTxt;
-    @FXML
     private Button aiudaaaBtn;
     @FXML
     private Button accederBtn;
+    @FXML
+    private PasswordField contrasenhaTxt;
 
     /*ayudaaaa
     /**
@@ -67,9 +73,38 @@ public class LoginController implements Initializable {
         alert.setContentText("Por favor contacte al Administrador.");
         alert.showAndWait();
     }
-
+    
     @FXML
     private void accederA(ActionEvent event) {
         this.accederBtn.setDisable(false);
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("edu.itssnpp_ITSMarket_jar_1.0-SNAPSHOTPU");
+        EntityManager em = emf.createEntityManager();
+
+        TypedQuery<Empleado> q = em.createQuery("SELECT tm FROM Empleado tm WHERE tm.ci=:ci", Empleado.class);
+        int cedula = Integer.parseInt(usuarioTxt.getText());
+        q.setParameter("ci", cedula);
+        List<Empleado> rConsulta = q.getResultList();
+        if (rConsulta.isEmpty()) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Información");
+            alert.setHeaderText("No existe Usuario :(");
+            alert.setContentText("Usuario no registrado.");
+            alert.showAndWait();
+        } else {
+            Empleado emp = rConsulta.get(0);
+            String contrasenha = contrasenhaTxt.getText();
+            if (emp.getPassword().equals(contrasenha)) {
+            } else {
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Información");
+                alert.setHeaderText("Contraseña incorrecta");
+                alert.setContentText("Por favor intentelo nuevamente.");
+                alert.showAndWait();
+            }
+        }
+        for (Empleado tm : rConsulta) {
+        }
+
     }
 }

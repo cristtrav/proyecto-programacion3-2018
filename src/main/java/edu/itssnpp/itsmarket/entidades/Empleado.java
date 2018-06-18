@@ -33,6 +33,8 @@ import javax.persistence.Table;
     @NamedQuery(name = "Empleado.findAll", query = "SELECT e FROM Empleado e")})
 public class Empleado implements Serializable {
 
+   
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,6 +51,8 @@ public class Empleado implements Serializable {
     private String telefono;
     @Column(name = "direccion")
     private String direccion;
+     @Column(name = "password")
+    private String password;
     @Column(name = "email")
     private String email;
     @JoinTable(name = "permiso", joinColumns = {
@@ -203,6 +207,14 @@ public class Empleado implements Serializable {
     @Override
     public String toString() {
         return "edu.itssnpp.itsmarket.entidades.Empleado[ idempleado=" + idempleado + " ]";
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
     
 }

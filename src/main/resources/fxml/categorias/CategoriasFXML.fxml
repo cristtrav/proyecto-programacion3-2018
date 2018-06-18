@@ -15,7 +15,7 @@
             <Font name="DejaVu Serif Bold" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="516.0" layoutY="207.0" mnemonicParsing="false" onAction="#Agregar" prefHeight="26.0" prefWidth="94.0" text="Agregar" />
+      <Button fx:id="agregar" layoutX="516.0" layoutY="207.0" mnemonicParsing="false" onAction="#Agregar" prefHeight="26.0" prefWidth="94.0" text="Agregar" />
       <Button layoutX="67.0" layoutY="342.0" mnemonicParsing="false" onAction="#eliminar" text="Eliminar" />
       <TableView fx:id="tabla" layoutX="37.0" layoutY="84.0" prefHeight="200.0" prefWidth="324.0">
         <columns>

@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -30,6 +31,8 @@ public class CategoriasFXMLController implements Initializable {
     private TableView<CategoriaCliente> tabla;
     @FXML
     private TableColumn<CategoriaCliente, String> columna;
+    @FXML
+    private Button agregar;
 
     /**
      * Initializes the controller class.
@@ -45,13 +48,25 @@ public class CategoriasFXMLController implements Initializable {
     private void Agregar(ActionEvent event) {
         
         EntityManager em=emf.createEntityManager();
+        if(agregar.getText().equals("Agregar")){
         CategoriaCliente cc= new CategoriaCliente();
         cc.setNombre(txf.getText());
         txf.clear();
         em.getTransaction().begin();
         em.persist(cc);
         em.getTransaction().commit();
-        cargardatos();
+        
+        }
+        else{
+        CategoriaCliente cc= tabla.getSelectionModel().getSelectedItem();
+        cc.setNombre(txf.getText());
+        txf.clear();
+        em.getTransaction().begin();
+        em.merge(cc);
+        em.getTransaction().commit();
+        agregar.setText("Agregar");   
+        }
+        cargardatos(); 
     }
 
     @FXML
@@ -69,10 +84,7 @@ public class CategoriasFXMLController implements Initializable {
         EntityManager em=emf.createEntityManager();
         CategoriaCliente cc= tabla.getSelectionModel().getSelectedItem();
         txf.setText(tabla.getSelectionModel().getSelectedItem().getNombre());
-        em.getTransaction().begin();
-        em.merge(cc);
-        em.getTransaction().commit();
-        cargardatos();
+        agregar.setText("Guardar");
     }   
     
     private void cargardatos(){

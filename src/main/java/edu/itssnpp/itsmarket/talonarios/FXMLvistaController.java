@@ -62,9 +62,6 @@ public class FXMLvistaController implements Initializable {
     private TableColumn<?, ?> tablaTotal;
     @FXML
     private TextField txtRucCliente;
-    
-    
-    
 
     /**
      * Initializes the controller class.

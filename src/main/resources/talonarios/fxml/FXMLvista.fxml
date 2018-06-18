@@ -72,7 +72,7 @@
                   <Label layoutX="399.0" layoutY="19.0" text="Ruc:" />
                   <Label layoutX="395.0" layoutY="58.0" text="Pago:" />
                   <ChoiceBox fx:id="cmbCliente" layoutX="78.0" layoutY="14.0" prefHeight="26.0" prefWidth="206.0" />
-                  <Button fx:id="buttonAgregarCliente" layoutX="297.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnagregar" text="Agregar" />
+                  <Button fx:id="buttonAgregarCliente" layoutX="305.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnagregar" text="Agregar" />
                </children></AnchorPane>
         </items>
       </SplitPane>

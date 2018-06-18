@@ -28,6 +28,6 @@
       </Label>
       <Button fx:id="agregar" layoutX="108.0" layoutY="491.0" mnemonicParsing="false" onAction="#Agregar" text="Agregar" />
       <Button fx:id="eliminar" layoutX="455.0" layoutY="315.0" mnemonicParsing="false" onAction="#Eliminar" text="Eliminar" />
-      <ComboBox fx:id="box2" layoutX="56.0" layoutY="95.0" prefWidth="150.0" />
+      <ComboBox fx:id="box2" layoutX="56.0" layoutY="95.0" onAction="#modulo" prefWidth="150.0" />
    </children>
 </AnchorPane>

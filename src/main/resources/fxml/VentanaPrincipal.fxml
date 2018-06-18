@@ -31,7 +31,6 @@
               <items>
                 <MenuItem mnemonicParsing="false" text="Close" />
                   <MenuItem mnemonicParsing="false" onAction="#OnActionModulos" text="Permisos" />
-                  <MenuItem mnemonicParsing="false" onAction="#OnActionFuncion" text="Funcionalidades" />
               </items>
             </Menu>
         </menus>

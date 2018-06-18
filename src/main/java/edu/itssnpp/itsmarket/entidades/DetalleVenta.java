@@ -6,6 +6,7 @@
 package edu.itssnpp.itsmarket.entidades;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -142,6 +143,18 @@ public class DetalleVenta implements Serializable {
     @Override
     public String toString() {
         return "edu.itssnpp.itsmarket.entidades.DetalleVenta[ iddetalle=" + iddetalle + " ]";
+    }
+
+    public void setFecha(Date time) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setPrecio(Integer pu) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setImporte(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

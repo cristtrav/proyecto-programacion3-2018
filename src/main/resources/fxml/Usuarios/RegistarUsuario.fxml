@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="edu.itssnpp.itsmmarket.Usuarios.UsuariosController">
+   <children>
+      <Text layoutX="197.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrar Usuario">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text layoutX="36.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:" />
+      <TextField fx:id="txtusuario" layoutX="197.0" layoutY="72.0" prefHeight="26.0" prefWidth="241.0" />
+      <Text layoutX="36.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:" />
+      <PasswordField fx:id="txtpsw" layoutX="197.0" layoutY="124.0" prefHeight="26.0" prefWidth="241.0" />
+      <PasswordField fx:id="txtpasw2" layoutX="197.0" layoutY="180.0" prefHeight="26.0" prefWidth="241.0" />
+      <Text layoutX="36.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmar Contraseña:" wrappingWidth="136.56494140625" />
+      <Text layoutX="36.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre Y Apellido:" />
+      <TextField fx:id="txtnombre" layoutX="197.0" layoutY="240.0" prefHeight="26.0" prefWidth="241.0" />
+      <Text layoutX="36.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefono:" wrappingWidth="124.70605373382568" />
+      <TextField fx:id="txtelefono" layoutX="197.0" layoutY="300.0" prefHeight="26.0" prefWidth="241.0" />
+      <Button fx:id="btnregistrar" layoutX="223.0" layoutY="349.0" mnemonicParsing="false" text="Registrar" />
+   </children>
+</AnchorPane>

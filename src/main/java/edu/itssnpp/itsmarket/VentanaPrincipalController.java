@@ -31,7 +31,7 @@ public class VentanaPrincipalController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        this.cargarModulo("/fxml/marcas/Vistamarcas.fxml", "Marcas");
     }
 
     private void cargarModulo(String direccionFXML, String tituloPestania) {

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="531.0" prefWidth="682.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="edu.itssnpp.itsmarket.CobroCliente.CobroController">
+   <children>
+      <Button fx:id="btnagregar" layoutX="33.0" layoutY="149.0" mnemonicParsing="false" onAction="#agregar" text="Agregar" />
+      <Button fx:id="btneliminar" layoutX="100.0" layoutY="149.0" mnemonicParsing="false" onAction="#eliminar" text="Eliminar" />
+      <Button fx:id="btneditar" layoutX="168.0" layoutY="149.0" mnemonicParsing="false" onAction="#editar" text="Editar" />
+      <ComboBox fx:id="combocli" layoutX="341.0" layoutY="15.0" onAction="#cliente" prefHeight="26.0" prefWidth="233.0" />
+      <TableView fx:id="tabla" layoutX="28.0" layoutY="184.0" prefHeight="264.0" prefWidth="560.0">
+         <columns>
+            <TableColumn fx:id="fepago" prefWidth="143.0" text="Fecha de pago" />
+            <TableColumn fx:id="fevencimiento" prefWidth="171.0" text="Fecha de vencimiento" />
+            <TableColumn fx:id="pagado" minWidth="7.0" prefWidth="77.0" text="Pagado" />
+            <TableColumn fx:id="importe" prefWidth="168.0" text="Importe" />
+         </columns>
+      </TableView>
+      <Text layoutX="31.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nro Factura" />
+      <Text layoutX="293.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cuota" />
+      <ComboBox fx:id="combocuota" layoutX="343.0" layoutY="83.0" onAction="#cuota" prefHeight="26.0" prefWidth="121.0" />
+      <TextField fx:id="txtfactura" layoutX="118.0" layoutY="15.0" onAction="#factura" prefHeight="26.0" prefWidth="147.0" />
+      <TextField fx:id="txtmonto" layoutX="343.0" layoutY="49.0" onAction="#monto" />
+      <Text layoutX="28.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vencimiento" />
+      <Text layoutX="33.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nro Cedula" />
+      <TextField fx:id="txtcedula" layoutX="118.0" layoutY="48.0" onAction="#cedula" prefHeight="26.0" prefWidth="147.0" />
+      <Text layoutX="289.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cliente" />
+      <Text layoutX="292.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monto" />
+      <Text layoutX="294.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Pago" />
+      <DatePicker fx:id="dppago" layoutX="374.0" layoutY="123.0" prefHeight="26.0" prefWidth="121.0" />
+      <DatePicker fx:id="dpvenc" layoutX="121.0" layoutY="83.0" prefHeight="26.0" prefWidth="121.0" />
+   </children>
+</AnchorPane>

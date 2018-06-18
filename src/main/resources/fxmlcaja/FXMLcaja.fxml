@@ -3,38 +3,69 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="631.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.itssnpp.itsmarket.caja.FXMLcajaController">
+<AnchorPane id="AnchorPane" prefHeight="490.0" prefWidth="777.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.itssnpp.itsmarket.caja.FXMLcajaController">
    <children>
-      <TabPane layoutX="3.0" prefHeight="400.0" prefWidth="625.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="503.0" prefWidth="780.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Caja Actual">
+          <Tab fx:id="cajaactual" text="Caja Actual">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="368.0" prefWidth="625.0">
                      <children>
-                        <Button fx:id="abrircaja" layoutY="1.0" mnemonicParsing="false" text="Abrir caja" />
-                        <Button fx:id="vertotal" layoutX="163.0" layoutY="1.0" mnemonicParsing="false" text="Ver Total" />
-                        <Button fx:id="retirardinero" layoutX="240.0" layoutY="1.0" mnemonicParsing="false" text="Retirar dinero" />
-                        <Button fx:id="cerrarcaja" layoutX="81.0" layoutY="1.0" mnemonicParsing="false" text="Cerrar caja" />
+                        <Button fx:id="abrircaja" layoutY="1.0" mnemonicParsing="false" onAction="#abrircaja" text="Abrir caja" />
+                        <Button fx:id="vertotal" layoutX="171.0" layoutY="1.0" mnemonicParsing="false" text="Ver Total" />
+                        <Button fx:id="retirardinero" layoutX="248.0" layoutY="1.0" mnemonicParsing="false" text="Retirar dinero" />
+                        <Button fx:id="cerrarcaja" layoutX="81.0" layoutY="1.0" mnemonicParsing="false" onAction="#cerrarcaja" text="Cerrar caja" />
+                        <TableView layoutY="27.0" prefHeight="445.0" prefWidth="777.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="No. Tran" />
+                            <TableColumn prefWidth="75.0" text="Fecha" />
+                              <TableColumn prefWidth="75.0" text="Hora" />
+                              <TableColumn prefWidth="95.0" text="Descripcion" />
+                              <TableColumn prefWidth="122.0" text="Medio de pago" />
+                          </columns>
+                        </TableView>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Cajas Anteriores">
+          <Tab fx:id="cajaanterior" text="Cajas Anteriores">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button layoutY="1.0" mnemonicParsing="false" text="Ver detalles" />
-                        <Button fx:id="totalperiodo" layoutX="96.0" layoutY="1.0" mnemonicParsing="false" text="Totalizar periodo" />
-                        <Button fx:id="informe" layoutX="224.0" layoutY="1.0" mnemonicParsing="false" text="Informe" />
+                        <Button fx:id="verdetalles" mnemonicParsing="false" text="Ver detalles" />
+                        <TableView layoutY="26.0" prefHeight="444.0" prefWidth="777.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Usuario" />
+                              <TableColumn prefWidth="75.0" text="Apertura" />
+                              <TableColumn prefWidth="106.0" text="Saldo inicial" />
+                              <TableColumn prefWidth="88.0" text="Saldo final" />
+                              <TableColumn prefWidth="53.0" text="Total" />
+                              <TableColumn prefWidth="75.0" text="Cierre" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="verdetalles1" layoutX="96.0" layoutY="1.0" mnemonicParsing="false" text="Informe" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
             <Tab text="Verificar Medio de pago">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView layoutX="-3.0" prefHeight="476.0" prefWidth="780.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Caja" />
+                            <TableColumn prefWidth="75.0" text="N. Tran" />
+                              <TableColumn prefWidth="75.0" text="Fecha" />
+                              <TableColumn prefWidth="127.0" text="Medio de pago" />
+                              <TableColumn prefWidth="77.0" text="Valor" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
                </content>
             </Tab>
         </tabs>

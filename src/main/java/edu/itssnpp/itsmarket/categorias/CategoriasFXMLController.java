@@ -2,11 +2,15 @@ package edu.itssnpp.itsmarket.categorias;
 
 import edu.itssnpp.itsmarket.entidades.CategoriaCliente;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -73,10 +77,15 @@ public class CategoriasFXMLController implements Initializable {
     private void eliminar(ActionEvent event) {
         EntityManager em=emf.createEntityManager();
         tabla.getSelectionModel().getSelectedItem();
+        Alert e= new Alert(AlertType.CONFIRMATION);
+        e.setTitle("Eliminar");
+        e.setHeaderText("¿Desea eliminar la categoria");
+        Optional<ButtonType> result = e.showAndWait();
+        if(result.get()== ButtonType.OK){
         em.getTransaction().begin();
         em.remove(em.merge(tabla.getSelectionModel().getSelectedItem()));
         em.getTransaction().commit();
-        cargardatos();
+        cargardatos();}
     }
 
     @FXML

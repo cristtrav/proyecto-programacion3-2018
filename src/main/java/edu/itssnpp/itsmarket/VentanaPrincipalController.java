@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
@@ -22,7 +23,9 @@ public class VentanaPrincipalController implements Initializable {
     
     private Label label;
     @FXML
-    private TabPane tabPane;
+    public TabPane tabPane;
+    @FXML
+    public MenuBar menuBar;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
@@ -32,7 +35,6 @@ public class VentanaPrincipalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.cargarModulo("/fxml/login/login.fxml", "Login");
-        this.cargarModulo("/fxml/dashboard/dashboard.fxml", "Dashboard"); 
     }
 
     private void cargarModulo(String direccionFXML, String tituloPestania) {

@@ -5,6 +5,7 @@
  */
 package edu.itssnpp.itsmarket.login;
 
+import edu.itssnpp.itsmarket.MainApp;
 import edu.itssnpp.itsmarket.entidades.Empleado;
 import java.net.URL;
 import java.util.List;
@@ -18,6 +19,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javax.persistence.EntityManager;
@@ -95,6 +97,13 @@ public class LoginController implements Initializable {
             Empleado emp = rConsulta.get(0);
             String contrasenha = contrasenhaTxt.getText();
             if (emp.getPassword().equals(contrasenha)) {
+                MainApp.VENTANAPRINCIPAL.menuBar.setDisable(false);
+                for (Tab t:MainApp.VENTANAPRINCIPAL.tabPane.getTabs()){
+                    if(t.getText().equals("Login")){
+                        MainApp.VENTANAPRINCIPAL.tabPane.getTabs().remove(t);
+                        break;
+                    }
+                }
             } else {
                 Alert alert = new Alert(AlertType.ERROR);
                 alert.setTitle("Información");
@@ -105,6 +114,5 @@ public class LoginController implements Initializable {
         }
         for (Empleado tm : rConsulta) {
         }
-
     }
 }

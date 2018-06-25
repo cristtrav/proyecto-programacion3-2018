@@ -38,8 +38,14 @@ public class PermisosFXMLController implements Initializable {
         cargarmodulos();
         box2.setCellFactory((ListView<Modulo> l) -> new ModulosListCell());
         box2.setButtonCell(new ModulosListCell());
+        
         list1.setCellFactory((ListView<Funcionalidad> m) -> new FuncionalidadListCell());
+        
         list2.setCellFactory((ListView<Funcionalidad> m) -> new FuncionalidadListCell());
+        
+        cargarempleado();
+        box1.setCellFactory((ListView<Empleado> n ) -> new EmpleadoListCell());
+        box1.setButtonCell(new EmpleadoListCell());
     }
 
     @FXML
@@ -90,6 +96,15 @@ public class PermisosFXMLController implements Initializable {
         q.setParameter("p", m);
         list1.getItems().clear();
         list1.getItems().addAll(q.getResultList());
+    }
+    
+    @FXML
+    private void cargarempleado(){
+        
+        EntityManager em=emf.createEntityManager();
+        TypedQuery<Empleado> q= em.createQuery("SELECT tm FROM Empleado tm", Empleado.class);
+        box1.getItems().clear();
+        box1.getItems().addAll(q.getResultList());
     }
 
 }

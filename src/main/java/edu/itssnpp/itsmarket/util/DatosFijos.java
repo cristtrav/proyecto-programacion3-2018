@@ -17,6 +17,8 @@ public class DatosFijos {
     public static final Modulo MODULO_EMPLEADO = new Modulo();
     public static final Modulo MODULO_PROVEEDOR = new Modulo();
     public static final Modulo MODULO_VENTA= new Modulo();
+    public static final Modulo MODULO_PROMOCION= new Modulo();
+    
    
 
     //Funcionalidades
@@ -44,6 +46,8 @@ public class DatosFijos {
     public static final Funcionalidad FUNCIONALIDAD_AGREGAR_CATEGORIA_PRODUCTO= new Funcionalidad();
     public static final Funcionalidad FUNCIONALIDAD_MODIFICAR_CATEGORIA_PRODUCTO= new Funcionalidad();
     public static final Funcionalidad FUNCIONALIDAD_ELIMINAR_CATEGORIA_PRODUCTO= new Funcionalidad();
+    public static final Funcionalidad FUNCIONALIDAD_AGREGAR_PROMOCION= new Funcionalidad();
+    public static final Funcionalidad FUNCIONALIDAD_MODIFICAR_PROMOCION= new Funcionalidad();
     
     static {
 
@@ -72,109 +76,119 @@ public class DatosFijos {
         MODULO_VENTA.setIdmodulo(8);
         MODULO_VENTA.setNombre("Venta");
         
+        MODULO_PROMOCION.setIdmodulo(9);
+        MODULO_PROMOCION.setNombre("Promoción");
         
         
                 //SE INICIALIZA LAS FUNCIONES
         FUNCIONALIDAD_REGISTRAR_CLIENTES.setIdfuncionalidad(1);
-        FUNCIONALIDAD_REGISTRAR_CLIENTES.setNombre("Registrar");
+        FUNCIONALIDAD_REGISTRAR_CLIENTES.setNombre("Registrar Clientes");
         FUNCIONALIDAD_REGISTRAR_CLIENTES.setModulo(MODULO_CLIENTES);
 
         FUNCIONALIDAD_MODIFICAR_CLIENTES.setIdfuncionalidad(2);
-        FUNCIONALIDAD_MODIFICAR_CLIENTES.setNombre("Modificar");
+        FUNCIONALIDAD_MODIFICAR_CLIENTES.setNombre("Modificar Clientes");
         FUNCIONALIDAD_MODIFICAR_CLIENTES.setModulo(MODULO_CLIENTES);
 
         FUNCIONALIDAD_ELIMINAR_CLIENTES.setIdfuncionalidad(3);
-        FUNCIONALIDAD_ELIMINAR_CLIENTES.setNombre("Eliminar");
+        FUNCIONALIDAD_ELIMINAR_CLIENTES.setNombre("Eliminar Clientes");
         FUNCIONALIDAD_ELIMINAR_CLIENTES.setModulo(MODULO_CLIENTES);
         
 
         FUNCIONALIDAD_REGISTRAR_PRODUCTO.setIdfuncionalidad(4);
-        FUNCIONALIDAD_REGISTRAR_PRODUCTO.setNombre("Registrar");
+        FUNCIONALIDAD_REGISTRAR_PRODUCTO.setNombre("Registrar Productos");
         FUNCIONALIDAD_REGISTRAR_PRODUCTO.setModulo(MODULO_PRODUCTO);
 
         FUNCIONALIDAD_MODIFICAR_PRODUCTO.setIdfuncionalidad(5);
-        FUNCIONALIDAD_MODIFICAR_PRODUCTO.setNombre("Modificar");
+        FUNCIONALIDAD_MODIFICAR_PRODUCTO.setNombre("Modificar Productos");
         FUNCIONALIDAD_MODIFICAR_PRODUCTO.setModulo(MODULO_PRODUCTO);
-
+ 
         FUNCIONALIDAD_ELIMINAR_PRODUCTO.setIdfuncionalidad(6);
-        FUNCIONALIDAD_ELIMINAR_PRODUCTO.setNombre("Eliminar");
+        FUNCIONALIDAD_ELIMINAR_PRODUCTO.setNombre("Eliminar Producto");
         FUNCIONALIDAD_ELIMINAR_PRODUCTO.setModulo(MODULO_PRODUCTO);
 
         FUNCIONALIDAD_REGISTRAR_COMPRA.setIdfuncionalidad(7);
-        FUNCIONALIDAD_REGISTRAR_COMPRA.setNombre("Registrar");
+        FUNCIONALIDAD_REGISTRAR_COMPRA.setNombre("Registrar Compra");
         FUNCIONALIDAD_REGISTRAR_COMPRA.setModulo(MODULO_COMPRA);
 
         FUNCIONALIDAD_MODIFICAR_COMPRA.setIdfuncionalidad(8);
-        FUNCIONALIDAD_MODIFICAR_COMPRA.setNombre("Modificar");
+        FUNCIONALIDAD_MODIFICAR_COMPRA.setNombre("Modificar Compra");
         FUNCIONALIDAD_MODIFICAR_COMPRA.setModulo(MODULO_COMPRA);
 
         FUNCIONALIDAD_ELIMINAR_COMPRA.setIdfuncionalidad(9);
-        FUNCIONALIDAD_ELIMINAR_COMPRA.setNombre("Eliminar");
+        FUNCIONALIDAD_ELIMINAR_COMPRA.setNombre("Eliminar Compra");
         FUNCIONALIDAD_ELIMINAR_COMPRA.setModulo(MODULO_COMPRA);
 
         FUNCIONALIDAD_REGISTRAR_EMPLEADO.setIdfuncionalidad(10);
-        FUNCIONALIDAD_REGISTRAR_EMPLEADO.setNombre("Registrar");
+        FUNCIONALIDAD_REGISTRAR_EMPLEADO.setNombre("Registrar Empleado");
         FUNCIONALIDAD_REGISTRAR_EMPLEADO.setModulo(MODULO_EMPLEADO);
 
         FUNCIONALIDAD_MODIFICAR_EMPLEADO.setIdfuncionalidad(11);
-        FUNCIONALIDAD_MODIFICAR_EMPLEADO.setNombre("Modificar");
+        FUNCIONALIDAD_MODIFICAR_EMPLEADO.setNombre("Modificar Empleado");
         FUNCIONALIDAD_MODIFICAR_EMPLEADO.setModulo(MODULO_EMPLEADO);
 
         FUNCIONALIDAD_ELIMINAR_EMPLEADO.setIdfuncionalidad(12);
-        FUNCIONALIDAD_ELIMINAR_EMPLEADO.setNombre("Eliminar");
+        FUNCIONALIDAD_ELIMINAR_EMPLEADO.setNombre("Eliminar Empleado");
         FUNCIONALIDAD_ELIMINAR_EMPLEADO.setModulo(MODULO_EMPLEADO);
         
         FUNCIONALIDAD_REGISTRAR_PROVEEDOR.setIdfuncionalidad(13);
-        FUNCIONALIDAD_REGISTRAR_PROVEEDOR.setNombre("Registrar");
+        FUNCIONALIDAD_REGISTRAR_PROVEEDOR.setNombre("Registrar Proveedor");
         FUNCIONALIDAD_REGISTRAR_PROVEEDOR.setModulo(MODULO_PROVEEDOR);
         
         FUNCIONALIDAD_MODIFICAR_PROVEEDOR.setIdfuncionalidad(14);
-        FUNCIONALIDAD_MODIFICAR_PROVEEDOR.setNombre("Modificar");
+        FUNCIONALIDAD_MODIFICAR_PROVEEDOR.setNombre("Modificar Proveedor");
         FUNCIONALIDAD_MODIFICAR_PROVEEDOR.setModulo(MODULO_PROVEEDOR);
         
                 
         FUNCIONALIDAD_ELIMINAR_PROVEEDOR.setIdfuncionalidad(15);
-        FUNCIONALIDAD_ELIMINAR_PROVEEDOR.setNombre("Eliminar");
+        FUNCIONALIDAD_ELIMINAR_PROVEEDOR.setNombre("Eliminar Proveedor");
         FUNCIONALIDAD_ELIMINAR_PROVEEDOR.setModulo(MODULO_PROVEEDOR);
         
                 
         FUNCIONALIDAD_REGISTRAR_VENTA.setIdfuncionalidad(16);
-        FUNCIONALIDAD_REGISTRAR_VENTA.setNombre("Registrar");
+        FUNCIONALIDAD_REGISTRAR_VENTA.setNombre("Registrar Venta");
         FUNCIONALIDAD_REGISTRAR_VENTA.setModulo(MODULO_VENTA);
         
         FUNCIONALIDAD_MODIFICAR_VENTA.setIdfuncionalidad(17);
-        FUNCIONALIDAD_MODIFICAR_VENTA.setNombre("Modificar");
+        FUNCIONALIDAD_MODIFICAR_VENTA.setNombre("Modificar Venta");
         FUNCIONALIDAD_MODIFICAR_VENTA.setModulo(MODULO_VENTA);
         
         FUNCIONALIDAD_ELIMINAR_VENTA.setIdfuncionalidad(18);
-        FUNCIONALIDAD_ELIMINAR_VENTA.setNombre("Eliminar");
+        FUNCIONALIDAD_ELIMINAR_VENTA.setNombre("Eliminar Venta");
         FUNCIONALIDAD_ELIMINAR_VENTA.setModulo(MODULO_VENTA);
         
         FUNCIONALIDAD_AGREGAR_CATEGORIA_CLIENTES.setIdfuncionalidad(19);
-        FUNCIONALIDAD_AGREGAR_CATEGORIA_CLIENTES.setNombre("Agregar");
+        FUNCIONALIDAD_AGREGAR_CATEGORIA_CLIENTES.setNombre("Agregar Categoria al Cliente");
         FUNCIONALIDAD_AGREGAR_CATEGORIA_CLIENTES.setModulo(MODULO_CATEGORIA_CLIENTES);
         
         
         FUNCIONALIDAD_MODIFICAR_CATEGORIA_CLIENTES.setIdfuncionalidad(20);
-        FUNCIONALIDAD_MODIFICAR_CATEGORIA_CLIENTES.setNombre("Modificar");
+        FUNCIONALIDAD_MODIFICAR_CATEGORIA_CLIENTES.setNombre("Modificar Categoria al Cliente");
         FUNCIONALIDAD_MODIFICAR_CATEGORIA_CLIENTES.setModulo(MODULO_CATEGORIA_CLIENTES);
         
          
         FUNCIONALIDAD_ELIMINAR_CATEGORIA_CLIENTES.setIdfuncionalidad(21);
-        FUNCIONALIDAD_ELIMINAR_CATEGORIA_CLIENTES.setNombre("Eliminar");
+        FUNCIONALIDAD_ELIMINAR_CATEGORIA_CLIENTES.setNombre("Eliminar Categoria al Cliente");
         FUNCIONALIDAD_ELIMINAR_CATEGORIA_CLIENTES.setModulo(MODULO_CATEGORIA_CLIENTES);
         
          FUNCIONALIDAD_AGREGAR_CATEGORIA_PRODUCTO.setIdfuncionalidad(22);
-         FUNCIONALIDAD_AGREGAR_CATEGORIA_PRODUCTO.setNombre("Agregar");
+         FUNCIONALIDAD_AGREGAR_CATEGORIA_PRODUCTO.setNombre("Agregar Categoria al Producto");
          FUNCIONALIDAD_AGREGAR_CATEGORIA_PRODUCTO.setModulo(MODULO_CATEGORIA_PRODUCTO);
         
          FUNCIONALIDAD_MODIFICAR_CATEGORIA_PRODUCTO.setIdfuncionalidad(23);
-         FUNCIONALIDAD_MODIFICAR_CATEGORIA_PRODUCTO.setNombre("Modificar");
+         FUNCIONALIDAD_MODIFICAR_CATEGORIA_PRODUCTO.setNombre("Modificar Categoria al Producto");
          FUNCIONALIDAD_MODIFICAR_CATEGORIA_PRODUCTO.setModulo(MODULO_CATEGORIA_PRODUCTO);
          
          FUNCIONALIDAD_ELIMINAR_CATEGORIA_PRODUCTO.setIdfuncionalidad(24);
-         FUNCIONALIDAD_ELIMINAR_CATEGORIA_PRODUCTO.setNombre("Eliminar");
+         FUNCIONALIDAD_ELIMINAR_CATEGORIA_PRODUCTO.setNombre("Eliminar Categoria al Producto");
          FUNCIONALIDAD_ELIMINAR_CATEGORIA_PRODUCTO.setModulo(MODULO_CATEGORIA_PRODUCTO);
+         
+         FUNCIONALIDAD_AGREGAR_PROMOCION.setIdfuncionalidad(25);
+         FUNCIONALIDAD_AGREGAR_PROMOCION.setNombre("Agregar Promoción");
+         FUNCIONALIDAD_AGREGAR_PROMOCION.setModulo(MODULO_PROMOCION);
+         
+         FUNCIONALIDAD_MODIFICAR_PROMOCION.setIdfuncionalidad(26);
+         FUNCIONALIDAD_MODIFICAR_PROMOCION.setNombre("Modificar Promoción");
+         FUNCIONALIDAD_MODIFICAR_PROMOCION.setModulo(MODULO_PROMOCION);
     }
 
     public static void verificarModulos() {
@@ -190,6 +204,7 @@ public class DatosFijos {
         em.merge(MODULO_EMPLEADO);
         em.merge(MODULO_PROVEEDOR);
         em.merge(MODULO_VENTA);
+        em.merge(MODULO_PROMOCION);
         
 
         em.getTransaction().commit();
@@ -225,6 +240,8 @@ public class DatosFijos {
         em.merge(FUNCIONALIDAD_AGREGAR_CATEGORIA_PRODUCTO);
         em.merge(FUNCIONALIDAD_MODIFICAR_CATEGORIA_PRODUCTO);
         em.merge(FUNCIONALIDAD_ELIMINAR_CATEGORIA_PRODUCTO);
+        em.merge(FUNCIONALIDAD_AGREGAR_PROMOCION);
+        em.merge(FUNCIONALIDAD_MODIFICAR_PROMOCION);
 
         em.getTransaction().commit();
     }

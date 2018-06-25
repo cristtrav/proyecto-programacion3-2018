@@ -1,5 +1,6 @@
 package edu.itssnpp.itsmarket.permisos;
 
+import edu.itssnpp.itsmarket.entidades.Empleado;
 import edu.itssnpp.itsmarket.entidades.Funcionalidad;
 import edu.itssnpp.itsmarket.entidades.Modulo;
 import java.net.URL;
@@ -28,22 +29,35 @@ public class PermisosFXMLController implements Initializable {
     @FXML
     private ListView<Funcionalidad> list1;
     @FXML
-    private ListView<String> list2;
+    private ListView<Funcionalidad> list2;
+    @FXML
+    private ComboBox<Empleado> box1;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cargarmodulos();
         box2.setCellFactory((ListView<Modulo> l) -> new ModulosListCell());
         box2.setButtonCell(new ModulosListCell());
-        
-        list1.setCellFactory((ListView<Funcionalidad> m) -> new  FuncionalidadListCell());
-        
-        
-       
+        list1.setCellFactory((ListView<Funcionalidad> m) -> new FuncionalidadListCell());
+        list2.setCellFactory((ListView<Funcionalidad> m) -> new FuncionalidadListCell());
     }
 
     @FXML
     private void Agregar(ActionEvent event) {
+        EntityManager em=emf.createEntityManager();
+        
+        Funcionalidad f=list1.getSelectionModel().getSelectedItem();
+        list2.getItems().add(f);
+        
+        Empleado e=box1.getSelectionModel().getSelectedItem();
+        e.getFuncionalidadList().add(list1.getSelectionModel().getSelectedItem());
+        
+        em.getTransaction().begin();
+        em.merge(e);
+        em.getTransaction().commit();
+        
+        
+        
 
     }
 
@@ -57,7 +71,7 @@ public class PermisosFXMLController implements Initializable {
         TypedQuery<Modulo> q = em.createQuery("SELECT tm FROM Modulo tm", Modulo.class);
         box2.getItems().clear();
         box2.getItems().addAll(q.getResultList());
-        
+
     }
 
     private void cargarfuncionalidad() {
@@ -69,8 +83,8 @@ public class PermisosFXMLController implements Initializable {
 
     @FXML
     private void modulo(ActionEvent event) {
-      
-        Modulo m= box2.getSelectionModel().getSelectedItem();
+
+        Modulo m = box2.getSelectionModel().getSelectedItem();
         EntityManager em = emf.createEntityManager();
         TypedQuery<Funcionalidad> q = em.createQuery("SELECT tm FROM Funcionalidad tm where tm.modulo=:p", Funcionalidad.class);
         q.setParameter("p", m);

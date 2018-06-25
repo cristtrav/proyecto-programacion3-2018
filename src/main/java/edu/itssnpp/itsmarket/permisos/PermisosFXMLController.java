@@ -38,37 +38,35 @@ public class PermisosFXMLController implements Initializable {
         cargarmodulos();
         box2.setCellFactory((ListView<Modulo> l) -> new ModulosListCell());
         box2.setButtonCell(new ModulosListCell());
-        
+
         list1.setCellFactory((ListView<Funcionalidad> m) -> new FuncionalidadListCell());
-        
+
         list2.setCellFactory((ListView<Funcionalidad> m) -> new FuncionalidadListCell());
-        
+
         cargarempleado();
-        box1.setCellFactory((ListView<Empleado> n ) -> new EmpleadoListCell());
+        box1.setCellFactory((ListView<Empleado> n) -> new EmpleadoListCell());
         box1.setButtonCell(new EmpleadoListCell());
+
     }
 
     @FXML
     private void Agregar(ActionEvent event) {
-        EntityManager em=emf.createEntityManager();
-        
-        Funcionalidad f=list1.getSelectionModel().getSelectedItem();
+        EntityManager em = emf.createEntityManager();
+
+        Funcionalidad f = list1.getSelectionModel().getSelectedItem();
         list2.getItems().add(f);
-        
-        Empleado e=box1.getSelectionModel().getSelectedItem();
+
+        Empleado e = box1.getSelectionModel().getSelectedItem();
         e.getFuncionalidadList().add(list1.getSelectionModel().getSelectedItem());
-        
+
         em.getTransaction().begin();
         em.merge(e);
         em.getTransaction().commit();
-        
-        
-        
-
     }
 
     @FXML
     private void Eliminar(ActionEvent event) {
+        
 
     }
 
@@ -97,12 +95,12 @@ public class PermisosFXMLController implements Initializable {
         list1.getItems().clear();
         list1.getItems().addAll(q.getResultList());
     }
-    
+
     @FXML
-    private void cargarempleado(){
-        
-        EntityManager em=emf.createEntityManager();
-        TypedQuery<Empleado> q= em.createQuery("SELECT tm FROM Empleado tm", Empleado.class);
+    private void cargarempleado() {
+
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Empleado> q = em.createQuery("SELECT tm FROM Empleado tm", Empleado.class);
         box1.getItems().clear();
         box1.getItems().addAll(q.getResultList());
     }

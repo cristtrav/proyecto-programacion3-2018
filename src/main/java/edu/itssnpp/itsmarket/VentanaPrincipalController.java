@@ -2,6 +2,7 @@ package edu.itssnpp.itsmarket;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -10,8 +11,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
@@ -26,6 +29,8 @@ public class VentanaPrincipalController implements Initializable {
     public TabPane tabPane;
     @FXML
     public MenuBar menuBar;
+    @FXML
+    public MenuItem cerrarItem;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
@@ -53,5 +58,17 @@ public class VentanaPrincipalController implements Initializable {
             errDlg.setContentText(ex.getMessage());
             errDlg.showAndWait();
         }
+    }
+
+    @FXML
+    private void salir(ActionEvent event) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmación");
+            alert.setHeaderText("Cerrar sesión");
+            alert.setContentText("Esta seguro de que quiere salir?");
+            Optional <ButtonType> close=alert.showAndWait();
+            if(close.get().equals(ButtonType.OK)){
+                
+            }
     }
 }

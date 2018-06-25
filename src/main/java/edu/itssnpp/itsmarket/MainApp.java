@@ -18,6 +18,7 @@ public class MainApp extends Application {
         VENTANAPRINCIPAL =loader.getController();
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
+        VENTANAPRINCIPAL=loader.getController();
         
         stage.setTitle("JavaFX and Maven");
         stage.setScene(scene);

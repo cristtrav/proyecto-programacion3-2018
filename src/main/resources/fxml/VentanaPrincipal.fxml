@@ -11,21 +11,19 @@
       <TabPane fx:id="tabPane" layoutX="6.0" layoutY="29.0" prefHeight="571.0" prefWidth="800.0" style="-fx-border-color: red;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="29.0" />
       <MenuBar fx:id="menuBar" disable="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="Menu">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="cerrarItem" mnemonicParsing="false" onAction="#salir" text="Cerrar Cesion" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
+          <Menu mnemonicParsing="false" text="Usuario">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Agregar Usuario" />
+              <MenuItem mnemonicParsing="false" text="Editar Usuario" />
+              <MenuItem mnemonicParsing="false" text="Eliminar Usuario" />
+               </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
+          <Menu mnemonicParsing="false" text="Ajustes" />
         </menus>
       </MenuBar>
    </children>

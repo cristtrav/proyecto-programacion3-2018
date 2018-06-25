@@ -22,8 +22,7 @@ import javafx.scene.layout.AnchorPane;
 public class VentanaPrincipalController implements Initializable {
 
     private static final Logger LOG = Logger.getLogger(VentanaPrincipalController.class.getName());
-    
-    
+
     private Label label;
     @FXML
     public TabPane tabPane;
@@ -31,30 +30,30 @@ public class VentanaPrincipalController implements Initializable {
     public MenuBar menuBar;
     @FXML
     public MenuItem cerrarItem;
-    
+
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
         label.setText("Hola mundo!");
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.cargarModulo("/fxml/login/login.fxml", "Login");
     }
 
-    private void cargarModulo(String direccionFXML, String tituloPestania) {
+    public void cargarModulo(String direccionFXML, String tituloPestania) {
         try {
             FXMLLoader loader = new FXMLLoader();
             AnchorPane root = loader.load(getClass().getResourceAsStream(direccionFXML));
-            Tab t=new Tab();
+            Tab t = new Tab();
             t.setText(tituloPestania);
             t.setContent(root);
             this.tabPane.getTabs().add(t);
         } catch (IOException ex) {
             LOG.log(Level.SEVERE, "Error al cargar modulo", ex);
-            Alert errDlg=new Alert(Alert.AlertType.ERROR);
+            Alert errDlg = new Alert(Alert.AlertType.ERROR);
             errDlg.setTitle("Error al cargar módulo");
-            errDlg.setHeaderText("Error al cargar módulo: '"+tituloPestania+"'. Archivo: '"+direccionFXML+"'.");
+            errDlg.setHeaderText("Error al cargar módulo: '" + tituloPestania + "'. Archivo: '" + direccionFXML + "'.");
             errDlg.setContentText(ex.getMessage());
             errDlg.showAndWait();
         }
@@ -62,13 +61,15 @@ public class VentanaPrincipalController implements Initializable {
 
     @FXML
     private void salir(ActionEvent event) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmación");
-            alert.setHeaderText("Cerrar sesión");
-            alert.setContentText("Esta seguro de que quiere salir?");
-            Optional <ButtonType> close=alert.showAndWait();
-            if(close.get().equals(ButtonType.OK)){
-                
-            }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmación");
+        alert.setHeaderText("Cerrar sesión");
+        alert.setContentText("Esta seguro de que quiere salir?");
+        Optional<ButtonType> close = alert.showAndWait();
+        if (close.get().equals(ButtonType.OK)) {
+            menuBar.setVisible(false);
+            tabPane.getTabs().clear();
+        this.cargarModulo("/fxml/login/login.fxml", "Login");
+        }
     }
 }

@@ -97,7 +97,7 @@ public class LoginController implements Initializable {
             Empleado emp = rConsulta.get(0);
             String contrasenha = contrasenhaTxt.getText();
             if (emp.getPassword().equals(contrasenha)) {
-                MainApp.VENTANAPRINCIPAL.menuBar.setDisable(false);
+                MainApp.VENTANAPRINCIPAL.menuBar.setVisible(true);
                 for (Tab t:MainApp.VENTANAPRINCIPAL.tabPane.getTabs()){
                     if(t.getText().equals("Login")){
                         MainApp.VENTANAPRINCIPAL.tabPane.getTabs().remove(t);

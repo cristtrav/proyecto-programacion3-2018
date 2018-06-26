@@ -8,12 +8,11 @@ package edu.itssnpp.itsmarket.caja;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
-import javax.persistence.Persistence;
+
 
 /**
  * FXML Controller class
@@ -26,8 +25,6 @@ public class FXMLcajaController implements Initializable {
     private Button abrircaja;
     
     @FXML
-    private Button vertotal;
-    @FXML
     private Button retirardinero;
     @FXML
     private Button cerrarcaja;
@@ -35,10 +32,6 @@ public class FXMLcajaController implements Initializable {
     private Tab cajaactual;
     @FXML
     private Tab cajaanterior;
-    @FXML
-    private Button verdetalles;
-    @FXML
-    private Button verdetalles1;
 
     /**
      * Initializes the controller class.
@@ -53,6 +46,7 @@ public class FXMLcajaController implements Initializable {
 
     @FXML
     private void abrircaja(ActionEvent event) {
+        
         
     }
 

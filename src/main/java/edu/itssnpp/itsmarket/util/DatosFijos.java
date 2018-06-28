@@ -207,8 +207,15 @@ public class DatosFijos {
          
          FUNCIONALIDAD_AGREGAR_TIMBRADO.setIdfuncionalidad(28);
          FUNCIONALIDAD_AGREGAR_TIMBRADO.setNombre("Agregar Timbrado");
-         FUNCIONALIDAD_AGREGAR_PROMOCION.setModulo(MODULO_TIMBRADO);
+         FUNCIONALIDAD_AGREGAR_TIMBRADO.setModulo(MODULO_TIMBRADO);
          
+         FUNCIONALIDAD_MODIFICAR_TIMBRADO.setIdfuncionalidad(29);
+         FUNCIONALIDAD_MODIFICAR_TIMBRADO.setNombre("Modificar Timbrado");
+         FUNCIONALIDAD_MODIFICAR_TIMBRADO.setModulo(MODULO_TIMBRADO);
+         
+         FUNCIONALIDAD_ELIMINAR_TIMBRADO.setIdfuncionalidad(30);
+         FUNCIONALIDAD_ELIMINAR_TIMBRADO.setNombre("Eliminar Timbrado");
+         FUNCIONALIDAD_ELIMINAR_TIMBRADO.setModulo(MODULO_TIMBRADO);
          
     }
 
@@ -266,6 +273,7 @@ public class DatosFijos {
         em.merge(FUNCIONALIDAD_MODIFICAR_PROMOCION);
         em.merge(FUNCIONALIDAD_ELIMINAR_PROMOCION);
         em.merge(FUNCIONALIDAD_AGREGAR_TIMBRADO);
+        em.merge(FUNCIONALIDAD_MODIFICAR_TIMBRADO);
 
         em.getTransaction().commit();
     }

@@ -14,6 +14,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 public class VentanaPrincipalController implements Initializable {
 
@@ -24,14 +27,10 @@ public class VentanaPrincipalController implements Initializable {
     @FXML
     private TabPane tabPane;
     
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hola mundo!");
-    }
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        EntityManagerFactory emf=Persistence.createEntityManagerFactory("edu.itssnpp_ITSMarket_jar_1.0-SNAPSHOTPU");
+        EntityManager em=emf.createEntityManager();
     }
 
     private void cargarModulo(String direccionFXML, String tituloPestania) {
@@ -42,6 +41,7 @@ public class VentanaPrincipalController implements Initializable {
             t.setText(tituloPestania);
             t.setContent(root);
             this.tabPane.getTabs().add(t);
+            this.tabPane.getSelectionModel().select(t);
         } catch (IOException ex) {
             LOG.log(Level.SEVERE, "Error al cargar modulo", ex);
             Alert errDlg=new Alert(Alert.AlertType.ERROR);

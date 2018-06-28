@@ -30,10 +30,10 @@
     <class>edu.itssnpp.itsmarket.entidades.CuotaCompra</class>
     <class>edu.itssnpp.itsmarket.entidades.Modulo</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ITSMarket?zeroDateTimeBehavior=convertToNull"/>
-      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://snppcov.ddns.net:3306/ITSMarket?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="itsmarket"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="123456"/>
+      <property name="javax.persistence.jdbc.password" value="itsmarket"/>
     </properties>
   </persistence-unit>
 </persistence>

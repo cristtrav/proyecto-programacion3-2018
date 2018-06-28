@@ -18,6 +18,8 @@ public class DatosFijos {
     public static final Modulo MODULO_PROVEEDOR = new Modulo();
     public static final Modulo MODULO_VENTA= new Modulo();
     public static final Modulo MODULO_PROMOCION= new Modulo();
+    public static final Modulo MODULO_TIMBRADO= new Modulo();
+  
     
    
 
@@ -48,6 +50,11 @@ public class DatosFijos {
     public static final Funcionalidad FUNCIONALIDAD_ELIMINAR_CATEGORIA_PRODUCTO= new Funcionalidad();
     public static final Funcionalidad FUNCIONALIDAD_AGREGAR_PROMOCION= new Funcionalidad();
     public static final Funcionalidad FUNCIONALIDAD_MODIFICAR_PROMOCION= new Funcionalidad();
+    public static final Funcionalidad FUNCIONALIDAD_ELIMINAR_PROMOCION= new Funcionalidad();
+    public static final Funcionalidad FUNCIONALIDAD_AGREGAR_TIMBRADO= new Funcionalidad();
+    public static final Funcionalidad FUNCIONALIDAD_MODIFICAR_TIMBRADO= new Funcionalidad();
+    public static final Funcionalidad FUNCIONALIDAD_ELIMINAR_TIMBRADO= new Funcionalidad();
+    
     
     static {
 
@@ -78,6 +85,9 @@ public class DatosFijos {
         
         MODULO_PROMOCION.setIdmodulo(9);
         MODULO_PROMOCION.setNombre("Promoción");
+        
+        MODULO_TIMBRADO.setIdmodulo(10);
+        MODULO_TIMBRADO.setNombre("Timbrado");
         
         
                 //SE INICIALIZA LAS FUNCIONES
@@ -189,6 +199,17 @@ public class DatosFijos {
          FUNCIONALIDAD_MODIFICAR_PROMOCION.setIdfuncionalidad(26);
          FUNCIONALIDAD_MODIFICAR_PROMOCION.setNombre("Modificar Promoción");
          FUNCIONALIDAD_MODIFICAR_PROMOCION.setModulo(MODULO_PROMOCION);
+         
+         FUNCIONALIDAD_ELIMINAR_PROMOCION.setIdfuncionalidad(27);
+         FUNCIONALIDAD_ELIMINAR_PROMOCION.setNombre("Eliminar Promoción");
+         FUNCIONALIDAD_ELIMINAR_PROMOCION.setModulo(MODULO_PROMOCION);
+         
+         
+         FUNCIONALIDAD_AGREGAR_TIMBRADO.setIdfuncionalidad(28);
+         FUNCIONALIDAD_AGREGAR_TIMBRADO.setNombre("Agregar Timbrado");
+         FUNCIONALIDAD_AGREGAR_PROMOCION.setModulo(MODULO_TIMBRADO);
+         
+         
     }
 
     public static void verificarModulos() {
@@ -205,6 +226,7 @@ public class DatosFijos {
         em.merge(MODULO_PROVEEDOR);
         em.merge(MODULO_VENTA);
         em.merge(MODULO_PROMOCION);
+        em.merge(MODULO_TIMBRADO);
         
 
         em.getTransaction().commit();
@@ -242,6 +264,8 @@ public class DatosFijos {
         em.merge(FUNCIONALIDAD_ELIMINAR_CATEGORIA_PRODUCTO);
         em.merge(FUNCIONALIDAD_AGREGAR_PROMOCION);
         em.merge(FUNCIONALIDAD_MODIFICAR_PROMOCION);
+        em.merge(FUNCIONALIDAD_ELIMINAR_PROMOCION);
+        em.merge(FUNCIONALIDAD_AGREGAR_TIMBRADO);
 
         em.getTransaction().commit();
     }

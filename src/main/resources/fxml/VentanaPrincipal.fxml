@@ -16,14 +16,48 @@
               <MenuItem fx:id="cerrarItem" mnemonicParsing="false" onAction="#salir" text="Cerrar Sesion" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Usuario">
+            <Menu mnemonicParsing="false" text="Informes">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Informe General" />
+                  <MenuItem mnemonicParsing="false" text="Movimiento General" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Movimiento de caja">
+              <items>
+                <MenuItem mnemonicParsing="false" text="cuotas" />
+                  <MenuItem mnemonicParsing="false" text="Asignacion de Caja" />
+                  <MenuItem mnemonicParsing="false" text="Ventas" />
+                  <MenuItem mnemonicParsing="false" text="Compras" />
+                  <MenuItem mnemonicParsing="false" text="Facturas" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Proveedores">
+              <items>
+                  <MenuItem mnemonicParsing="false" text="Proveedores" />
+                  <MenuItem mnemonicParsing="false" text="Pagos a Proveedores" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Clientes">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Categorias" />
+                  <MenuItem mnemonicParsing="false" text="Clientes" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Productos">
+              <items>
+                  <MenuItem mnemonicParsing="false" text="Productos" />
+                <MenuItem mnemonicParsing="false" text="Marcas" />
+                  <MenuItem mnemonicParsing="false" text="Categorias" />
+                  <MenuItem mnemonicParsing="false" text="Stock" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Ajustes">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Agregar Usuario" />
-              <MenuItem mnemonicParsing="false" text="Editar Usuario" />
-              <MenuItem mnemonicParsing="false" text="Eliminar Usuario" />
-               </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Ajustes" />
+                  <MenuItem mnemonicParsing="false" text="Modulos" />
+                  <MenuItem mnemonicParsing="false" text="Funcionalidades" />
+                  <MenuItem mnemonicParsing="false" text="Ajustar Stock" />
+                  <MenuItem mnemonicParsing="false" text="Permisos" />
+               </items></Menu>
         </menus>
       </MenuBar>
    </children>

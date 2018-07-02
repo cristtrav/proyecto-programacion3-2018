@@ -19,6 +19,8 @@ public class DatosFijos {
     public static final Modulo MODULO_VENTA= new Modulo();
     public static final Modulo MODULO_PROMOCION= new Modulo();
     public static final Modulo MODULO_TIMBRADO= new Modulo();
+    public static final Modulo MODULO_CAJA= new Modulo();
+    public static final Modulo MODULO_MARCA= new Modulo();
   
     
    
@@ -54,6 +56,13 @@ public class DatosFijos {
     public static final Funcionalidad FUNCIONALIDAD_AGREGAR_TIMBRADO= new Funcionalidad();
     public static final Funcionalidad FUNCIONALIDAD_MODIFICAR_TIMBRADO= new Funcionalidad();
     public static final Funcionalidad FUNCIONALIDAD_ELIMINAR_TIMBRADO= new Funcionalidad();
+    public static final Funcionalidad FUNCIONALIDAD_AGREGAR_CAJA= new Funcionalidad();
+    public static final Funcionalidad FUNCIONALIDAD_MODIFICAR_CAJA= new Funcionalidad();
+    public static final Funcionalidad FUNCIONALIDAD_ELIMINAR_CAJA= new Funcionalidad();
+    public static final Funcionalidad FUNCIONALIDAD_AGREGAR_MARCA= new Funcionalidad();
+    public static final Funcionalidad FUNCIONALIDAD_MODIFICAR_MARCA= new Funcionalidad();
+    public static final Funcionalidad FUNCIONALIDAD_ELIMINAR_MARCA= new Funcionalidad();
+  
     
     
     static {
@@ -88,6 +97,16 @@ public class DatosFijos {
         
         MODULO_TIMBRADO.setIdmodulo(10);
         MODULO_TIMBRADO.setNombre("Timbrado");
+        
+        MODULO_CAJA.setIdmodulo(11);
+        MODULO_CAJA.setNombre("Caja");
+        
+        MODULO_MARCA.setIdmodulo(12);
+        MODULO_MARCA.setNombre("Marca");
+        
+        
+        
+        
         
         
                 //SE INICIALIZA LAS FUNCIONES
@@ -217,6 +236,27 @@ public class DatosFijos {
          FUNCIONALIDAD_ELIMINAR_TIMBRADO.setNombre("Eliminar Timbrado");
          FUNCIONALIDAD_ELIMINAR_TIMBRADO.setModulo(MODULO_TIMBRADO);
          
+         FUNCIONALIDAD_AGREGAR_CAJA.setIdfuncionalidad(31);
+         FUNCIONALIDAD_AGREGAR_CAJA.setNombre("Agregar Caja");
+         FUNCIONALIDAD_AGREGAR_CAJA.setModulo(MODULO_CAJA);
+         
+         FUNCIONALIDAD_MODIFICAR_CAJA.setIdfuncionalidad(32);
+         FUNCIONALIDAD_MODIFICAR_CAJA.setNombre("Modificar Caja");
+         FUNCIONALIDAD_MODIFICAR_CAJA.setModulo(MODULO_CAJA);
+         
+         FUNCIONALIDAD_ELIMINAR_CAJA.setIdfuncionalidad(33);
+         FUNCIONALIDAD_ELIMINAR_CAJA.setNombre("Eliminar Caja");
+         FUNCIONALIDAD_ELIMINAR_CAJA.setModulo(MODULO_CAJA);
+         
+         FUNCIONALIDAD_AGREGAR_MARCA.setIdfuncionalidad(34);
+         FUNCIONALIDAD_AGREGAR_MARCA.setNombre("Agregar Marca");
+         FUNCIONALIDAD_AGREGAR_MARCA.setModulo(MODULO_MARCA);
+         
+         FUNCIONALIDAD_MODIFICAR_MARCA.setIdfuncionalidad(35);
+         FUNCIONALIDAD_MODIFICAR_MARCA.setNombre("Modificar Marca");
+         FUNCIONALIDAD_MODIFICAR_MARCA.setModulo(MODULO_MARCA);
+         
+         
     }
 
     public static void verificarModulos() {
@@ -234,6 +274,9 @@ public class DatosFijos {
         em.merge(MODULO_VENTA);
         em.merge(MODULO_PROMOCION);
         em.merge(MODULO_TIMBRADO);
+        em.merge(MODULO_CAJA);
+        em.merge(MODULO_MARCA);
+        
         
 
         em.getTransaction().commit();
@@ -274,6 +317,13 @@ public class DatosFijos {
         em.merge(FUNCIONALIDAD_ELIMINAR_PROMOCION);
         em.merge(FUNCIONALIDAD_AGREGAR_TIMBRADO);
         em.merge(FUNCIONALIDAD_MODIFICAR_TIMBRADO);
+        em.merge(FUNCIONALIDAD_ELIMINAR_TIMBRADO);
+        em.merge(FUNCIONALIDAD_AGREGAR_CAJA);
+        em.merge(FUNCIONALIDAD_MODIFICAR_CAJA);
+        em.merge(FUNCIONALIDAD_ELIMINAR_CAJA);
+        em.merge(FUNCIONALIDAD_AGREGAR_MARCA);
+        em.merge(FUNCIONALIDAD_MODIFICAR_MARCA);
+        em.merge(FUNCIONALIDAD_ELIMINAR_MARCA);
 
         em.getTransaction().commit();
     }

@@ -256,6 +256,10 @@ public class DatosFijos {
          FUNCIONALIDAD_MODIFICAR_MARCA.setNombre("Modificar Marca");
          FUNCIONALIDAD_MODIFICAR_MARCA.setModulo(MODULO_MARCA);
          
+         FUNCIONALIDAD_ELIMINAR_MARCA.setIdfuncionalidad(36);
+         FUNCIONALIDAD_ELIMINAR_MARCA.setNombre("Eliminar Marca");
+         FUNCIONALIDAD_ELIMINAR_MARCA.setModulo(MODULO_MARCA);
+        
          
     }
 

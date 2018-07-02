@@ -66,14 +66,21 @@ public class PermisosFXMLController implements Initializable {
 
     @FXML
     private void Eliminar(ActionEvent event) {
-                
-                EntityManager em = emf.createEntityManager();
-                list2.getSelectionModel().getSelectedItem();
-                
-                
-        
+
+       
+                         
+        EntityManager em = emf.createEntityManager();
+        list2.getSelectionModel().getSelectedItem();
+         
+        Funcionalidad f = list1.getSelectionModel().getSelectedItem();
+        list2.getItems().remove(f);
+
+        Empleado e = box1.getSelectionModel().getSelectedItem();
+        e.getFuncionalidadList().remove(list1.getSelectionModel().getSelectedItem());
+
+   
         em.getTransaction().begin();
-        em.remove(em.merge(list2.getSelectionModel().getSelectedItem()));
+        em.merge(e);
         em.getTransaction().commit();
 
 

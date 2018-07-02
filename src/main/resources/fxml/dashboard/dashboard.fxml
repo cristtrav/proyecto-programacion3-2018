@@ -1,10 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="segundaVista" disable="true" prefHeight="571.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.itssnpp.itsmarket.login.dashboard.DashboardController">
+<AnchorPane id="AnchorPane" prefHeight="571.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.itssnpp.itsmarket.login.dashboard.DashboardController">
    <children>
-      <Button layoutX="681.0" layoutY="493.0" mnemonicParsing="false" text="Salir" />
+      <Label layoutX="205.0" layoutY="32.0" text="Dashboard - ITS MARKET">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="39.0" layoutY="96.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label layoutX="1.0" layoutY="21.0" text="MOVIMIENTO SEMANAL" underline="true">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="labeltotalventas" layoutX="79.0" layoutY="68.0" prefHeight="26.0" prefWidth="118.0" text="10.000.000" textAlignment="RIGHT" textFill="#06da0d">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="7.0" layoutY="70.0" text="Ingreso:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="8.0" layoutY="146.0" text="Desde fecha:" />
+            <Label layoutX="9.0" layoutY="173.0" text="Hasta fecha:" />
+            <Label layoutX="101.0" layoutY="141.0" prefHeight="26.0" prefWidth="83.0" text="01/06/2018" textAlignment="JUSTIFY" />
+            <Label layoutX="100.0" layoutY="167.0" prefHeight="26.0" prefWidth="83.0" text="30/06/2018" textAlignment="JUSTIFY" />
+            <Label layoutX="7.0" layoutY="100.0" text="Egreso:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="labeltotalventas1" layoutX="78.0" layoutY="95.0" prefHeight="26.0" prefWidth="118.0" text="5.000.000" textAlignment="RIGHT" textFill="#d92107">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Separator layoutX="11.0" layoutY="130.0" prefHeight="6.0" prefWidth="172.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="300.0" layoutY="96.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label layoutX="38.0" layoutY="22.0" text="TOTAL VENTAS" underline="true">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="70.0" text="Gs.:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="labeltotalventas2" layoutX="56.0" layoutY="67.0" prefHeight="26.0" prefWidth="118.0" text="10.000.000" textAlignment="RIGHT" textFill="#06da0d">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="143.0" text="Desde fecha:" />
+            <Label layoutX="16.0" layoutY="170.0" text="Hasta fecha:" />
+            <Label layoutX="108.0" layoutY="138.0" prefHeight="26.0" prefWidth="83.0" text="01/06/2018" textAlignment="JUSTIFY" />
+            <Label layoutX="107.0" layoutY="164.0" prefHeight="26.0" prefWidth="83.0" text="30/06/2018" textAlignment="JUSTIFY" />
+            <Separator layoutX="16.0" layoutY="121.0" prefHeight="6.0" prefWidth="172.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="39.0" layoutY="326.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label layoutX="24.0" layoutY="32.0" text="DEUDAS A PAGAR" underline="true">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="2.0" layoutY="98.0" text="Total Gs.:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="labeltotalventas22" layoutX="80.0" layoutY="95.0" prefHeight="26.0" prefWidth="118.0" text="10.000.000" textAlignment="RIGHT" textFill="#d90707">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="300.0" layoutY="326.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+      <AnchorPane layoutX="540.0" layoutY="96.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label layoutX="30.0" layoutY="22.0" text="TOTAL GANACIAS" underline="true">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="29.0" layoutY="67.0" text="Gs.:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="labeltotalventas21" layoutX="71.0" layoutY="64.0" prefHeight="26.0" prefWidth="118.0" text="10.000.000" textAlignment="RIGHT" textFill="#06da0d">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="140.0" text="Desde fecha:" />
+            <Label layoutX="31.0" layoutY="167.0" text="Hasta fecha:" />
+            <Label layoutX="123.0" layoutY="135.0" prefHeight="26.0" prefWidth="83.0" text="01/06/2018" textAlignment="JUSTIFY" />
+            <Label layoutX="122.0" layoutY="161.0" prefHeight="26.0" prefWidth="83.0" text="30/06/2018" textAlignment="JUSTIFY" />
+            <Separator layoutX="31.0" layoutY="118.0" prefHeight="6.0" prefWidth="172.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="540.0" layoutY="326.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+      <AnchorPane layoutX="278.0" layoutY="96.0" prefHeight="200.0" prefWidth="22.0" style="-fx-background-color: blue;" />
+      <AnchorPane layoutX="519.0" layoutY="96.0" prefHeight="200.0" prefWidth="22.0" style="-fx-background-color: green;" />
+      <AnchorPane layoutX="17.0" layoutY="96.0" prefHeight="200.0" prefWidth="22.0" style="-fx-background-color: orange;" />
+      <AnchorPane layoutX="17.0" layoutY="326.0" prefHeight="200.0" prefWidth="22.0" style="-fx-background-color: red;" />
+      <AnchorPane layoutX="278.0" layoutY="326.0" prefHeight="200.0" prefWidth="22.0" style="-fx-background-color: brown;" />
+      <AnchorPane layoutX="519.0" layoutY="326.0" prefHeight="200.0" prefWidth="22.0" style="-fx-background-color: purple;" />
    </children>
 </AnchorPane>

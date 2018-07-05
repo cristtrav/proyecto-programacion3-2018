@@ -5,6 +5,7 @@ import edu.itssnpp.itsmarket.entidades.Funcionalidad;
 import edu.itssnpp.itsmarket.entidades.Modulo;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -47,6 +48,16 @@ public class PermisosFXMLController implements Initializable {
         box1.setCellFactory((ListView<Empleado> n) -> new EmpleadoListCell());
         box1.setButtonCell(new EmpleadoListCell());
 
+        box1.valueProperty().addListener((ObservableValue<? extends Empleado> ob, Empleado va, Empleado vn) -> {
+
+            list2.getItems().clear();
+            if (vn != null) {
+
+                list2.getItems().addAll(vn.getFuncionalidadList());
+            }
+
+        });
+
     }
 
     @FXML
@@ -67,22 +78,18 @@ public class PermisosFXMLController implements Initializable {
     @FXML
     private void Eliminar(ActionEvent event) {
 
-       
-                         
         EntityManager em = emf.createEntityManager();
         list2.getSelectionModel().getSelectedItem();
-         
+
         Funcionalidad f = list1.getSelectionModel().getSelectedItem();
         list2.getItems().remove(f);
 
         Empleado e = box1.getSelectionModel().getSelectedItem();
         e.getFuncionalidadList().remove(list1.getSelectionModel().getSelectedItem());
 
-   
         em.getTransaction().begin();
         em.merge(e);
         em.getTransaction().commit();
-
 
     }
 

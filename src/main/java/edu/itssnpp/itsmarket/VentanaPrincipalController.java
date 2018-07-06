@@ -20,10 +20,9 @@ public class VentanaPrincipalController implements Initializable {
 
     private static final Logger LOG = Logger.getLogger(VentanaPrincipalController.class.getName());
     
-    
     private Label label;
     @FXML
-    private TabPane tabPane;
+    public TabPane tabPane;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
@@ -43,6 +42,7 @@ public class VentanaPrincipalController implements Initializable {
             t.setText(tituloPestania);
             t.setContent(root);
             this.tabPane.getTabs().add(t);
+            this.tabPane.getSelectionModel().select(t);
         } catch (IOException ex) {
             LOG.log(Level.SEVERE, "Error al cargar modulo", ex);
             Alert errDlg=new Alert(Alert.AlertType.ERROR);
@@ -55,7 +55,8 @@ public class VentanaPrincipalController implements Initializable {
 
     @FXML
     private void onActiononClientes(ActionEvent event) {
-        this.cargarModulo("/fxml/clientes/ClientesFXML.fxml", "Clientes");
+        
+        this.cargarModulo("/fxml/clientes/TablaClientesFXML.fxml", "Tabla Clientes");
     }
 
     @FXML

@@ -29,9 +29,9 @@
       <Label layoutX="35.0" layoutY="329.0" text="E-Mail:" />
       <TextField fx:id="email" layoutX="110.0" layoutY="324.0" prefHeight="26.0" prefWidth="406.0" />
       <Label layoutX="465.0" layoutY="78.0" text="Id del Cliente:" />
-      <TextField fx:id="idcliente" layoutX="566.0" layoutY="73.0" prefHeight="26.0" prefWidth="129.0" />
-      <Button fx:id="button" layoutX="664.0" layoutY="422.0" mnemonicParsing="false" onAction="#agregar" text="Agregar" />
-      <ComboBox layoutX="112.0" layoutY="360.0" prefWidth="150.0" />
+      <TextField fx:id="idcliente" disable="true" layoutX="566.0" layoutY="73.0" prefHeight="26.0" prefWidth="129.0" />
+      <Button fx:id="agregar" layoutX="664.0" layoutY="422.0" mnemonicParsing="false" onAction="#agregar" text="Agregar" />
+      <ComboBox fx:id="categoria" layoutX="112.0" layoutY="360.0" prefWidth="150.0" />
       <Label layoutX="35.0" layoutY="365.0" text="Categoría" />
       <Label layoutX="42.0" layoutY="291.0" text="Ciudad:" />
       <ComboBox fx:id="ciudad" layoutX="112.0" layoutY="286.0" prefWidth="150.0" />

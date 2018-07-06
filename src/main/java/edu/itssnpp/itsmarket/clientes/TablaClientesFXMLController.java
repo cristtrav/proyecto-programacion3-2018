@@ -25,7 +25,9 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -60,6 +62,8 @@ public class TablaClientesFXMLController implements Initializable {
     private TableColumn<Cliente, String> email;
     @FXML
     private TableColumn<Cliente, CategoriaCliente> categoria;
+    @FXML
+    private TextField txf;
 
     /**
      * Initializes the controller class.
@@ -143,6 +147,25 @@ public class TablaClientesFXMLController implements Initializable {
     @FXML
     private void Actualizar(ActionEvent event) {
         cargarclientes();
+    }
+
+    @FXML
+    private void OnActionBuscar(ActionEvent event) {
+      buscar();  
+    }
+
+    @FXML
+    private void OnKeyBuscar(KeyEvent event) {
+        buscar();
+    }
+    
+    private void buscar(){
+        EntityManager em= emf.createEntityManager();
+        String b= txf.getText();
+      TypedQuery<Cliente> q= em.createQuery("SELECT c FROM Cliente c WHERE LOWER(c.nombres) LIKE :txt OR LOWER(c.apellidos) LIKE :txt OR SQL('CAST(? AS CHAR(11))',c.ci) LIKE :txt",Cliente.class);
+      q.setParameter("txt", "%"+b.toLowerCase()+"%");
+      lista.getItems().clear();
+      lista.getItems().addAll(q.getResultList());
     }
     
 }

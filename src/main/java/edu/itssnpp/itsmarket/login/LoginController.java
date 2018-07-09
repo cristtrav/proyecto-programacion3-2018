@@ -8,8 +8,12 @@ package edu.itssnpp.itsmarket.login;
 import edu.itssnpp.itsmarket.MainApp;
 import edu.itssnpp.itsmarket.entidades.Empleado;
 import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -33,6 +37,9 @@ import javax.persistence.TypedQuery;
  * @author hugo
  */
 public class LoginController implements Initializable {
+
+    private static final Logger LOG = Logger.getLogger(LoginController.class.getName());
+    
 
     @FXML
     private AnchorPane login;
@@ -95,7 +102,8 @@ public class LoginController implements Initializable {
             alert.showAndWait();
         } else {
             Empleado emp = rConsulta.get(0);
-            String contrasenha = contrasenhaTxt.getText();
+            String contrasenha = this.contrasenha(contrasenhaTxt.getText());
+            
             if (emp.getPassword().equals(contrasenha)) {
                 MainApp.VENTANAPRINCIPAL.menuBar.setVisible(true);
                 for (Tab t:MainApp.VENTANAPRINCIPAL.tabPane.getTabs()){
@@ -114,5 +122,20 @@ public class LoginController implements Initializable {
         }
         for (Empleado tm : rConsulta) {
         }
+    }
+    public String contrasenha(String source){
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hash = md.digest(source.getBytes());
+            StringBuilder sb = new StringBuilder();
+            for(byte b : hash){
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+            LOG.log(Level.SEVERE, "Error al obtener algoritmo sha-256", e);
+        }
+        return null;
+        
     }
 }

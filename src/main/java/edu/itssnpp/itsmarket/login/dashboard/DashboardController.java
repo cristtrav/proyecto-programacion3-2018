@@ -5,11 +5,15 @@
  */
 package edu.itssnpp.itsmarket.login.dashboard;
 
+import edu.itssnpp.itsmarket.entidades.Empleado;
+import edu.itssnpp.itsmarket.entidades.Venta;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javax.persistence.TypedQuery;
 
 /**
  * FXML Controller class
@@ -17,8 +21,7 @@ import javafx.scene.control.Label;
  * @author hugo
  */
 public class DashboardController implements Initializable {
-    @FXML
-    private Label labeltotalventas22;
+
     @FXML
     private Label lblingresosemanal;
     @FXML
@@ -47,13 +50,23 @@ public class DashboardController implements Initializable {
     private Label lbltotalventasdia;
     @FXML
     private Label lblventasdia;
+    @FXML
+    private Label fechaMovMensual;
+    @FXML
+    private VBox listaproductos;
+    @FXML
+    private Label lbltotalDeuda;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+
+    }
+
+    public void lblingresosemanal() {
+        
+
+    }
 }

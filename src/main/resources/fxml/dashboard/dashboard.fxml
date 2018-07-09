@@ -127,7 +127,7 @@
                </font>
             </Label>
             <Label layoutX="21.0" layoutY="154.0" text="Mes:" />
-            <Label layoutX="78.0" layoutY="149.0" prefHeight="26.0" prefWidth="83.0" text="01/06/2018" textAlignment="JUSTIFY" />
+            <Label fx:id="fechaMovMensual" layoutX="78.0" layoutY="149.0" prefHeight="26.0" prefWidth="83.0" text="01/06/2018" textAlignment="JUSTIFY" />
             <Label layoutX="16.0" layoutY="77.0" text="Egreso:">
                <font>
                   <Font size="16.0" />
@@ -161,7 +161,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <VBox layoutX="18.0" layoutY="66.0" prefHeight="121.0" prefWidth="174.0" spacing="10.0">
+            <VBox fx:id="listaproductos" layoutX="18.0" layoutY="66.0" prefHeight="121.0" prefWidth="174.0" spacing="10.0">
                <children>
                   <Label prefHeight="16.0" prefWidth="142.0" text="BUD 66" />
                   <Label prefHeight="16.0" prefWidth="142.0" text="Costilla de cerdo" />
@@ -213,7 +213,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labeltotalventas22" layoutX="83.0" layoutY="85.0" prefHeight="26.0" prefWidth="118.0" text="10.000.000" textAlignment="RIGHT" textFill="#d90707">
+            <Label fx:id="lbltotalDeuda" layoutX="83.0" layoutY="85.0" prefHeight="26.0" prefWidth="118.0" text="10.000.000" textAlignment="RIGHT" textFill="#d90707">
                <font>
                   <Font size="18.0" />
                </font>

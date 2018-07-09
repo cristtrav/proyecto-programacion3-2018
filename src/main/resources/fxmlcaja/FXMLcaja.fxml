@@ -16,30 +16,30 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="368.0" prefWidth="625.0">
                      <children>
                         <Button fx:id="abrircaja" layoutY="1.0" mnemonicParsing="false" onAction="#abrircaja" text="Abrir caja" />
-                        <Button fx:id="retirardinero" layoutX="171.0" layoutY="1.0" mnemonicParsing="false" text="Retirar dinero" />
+                        <Button fx:id="retirardinero" layoutX="171.0" layoutY="1.0" mnemonicParsing="false" onAction="#retirardinero" text="Retirar dinero" />
                         <Button fx:id="cerrarcaja" layoutX="81.0" layoutY="1.0" mnemonicParsing="false" onAction="#cerrarcaja" text="Cerrar caja" />
                         <TableView layoutY="27.0" prefHeight="445.0" prefWidth="777.0">
                           <columns>
-                            <TableColumn prefWidth="112.0" text="Monto inicial" />
-                            <TableColumn prefWidth="102.0" text="Monto final" />
-                              <TableColumn text="Nro. caja" />
-                              <TableColumn prefWidth="162.0" text="Fecha y hora apertura" />
-                              <TableColumn prefWidth="164.0" text="Fecha y hora cierre" />
+                            <TableColumn fx:id="montoinicial" prefWidth="112.0" text="Monto inicial" />
+                            <TableColumn fx:id="montofial" prefWidth="102.0" text="Monto final" />
+                              <TableColumn fx:id="nrocaja" text="Nro. caja" />
+                              <TableColumn fx:id="fechahoraapertura" prefWidth="162.0" text="Fecha y hora apertura" />
+                              <TableColumn fx:id="fechahoracierre" prefWidth="164.0" text="Fecha y hora cierre" />
                           </columns>
                         </TableView>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab fx:id="cajaanterior" text="Detalles de Movimiento">
+          <Tab fx:id="detallemovi" text="Detalles de Movimiento">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <TableView layoutY="-2.0" prefHeight="472.0" prefWidth="777.0">
                           <columns>
-                            <TableColumn prefWidth="82.0" text="Monto" />
-                              <TableColumn prefWidth="103.0" text="Nro de caja" />
-                              <TableColumn prefWidth="147.0" text="Medio de pago" />
+                            <TableColumn fx:id="detamonto" prefWidth="82.0" text="Monto" />
+                              <TableColumn fx:id="detanrocaja" prefWidth="103.0" text="Nro de caja" />
+                              <TableColumn fx:id="mediodepago" prefWidth="147.0" text="Medio de pago" />
                           </columns>
                         </TableView>
                      </children>

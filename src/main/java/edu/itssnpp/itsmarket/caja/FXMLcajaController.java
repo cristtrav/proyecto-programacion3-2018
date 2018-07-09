@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TableColumn;
 
 
 /**
@@ -31,7 +32,23 @@ public class FXMLcajaController implements Initializable {
     @FXML
     private Tab cajaactual;
     @FXML
-    private Tab cajaanterior;
+    private TableColumn<?, ?> montoinicial;
+    @FXML
+    private TableColumn<?, ?> montofial;
+    @FXML
+    private TableColumn<?, ?> nrocaja;
+    @FXML
+    private TableColumn<?, ?> fechahoraapertura;
+    @FXML
+    private TableColumn<?, ?> fechahoracierre;
+    @FXML
+    private TableColumn<?, ?> detamonto;
+    @FXML
+    private TableColumn<?, ?> detanrocaja;
+    @FXML
+    private TableColumn<?, ?> mediodepago;
+    @FXML
+    private Tab detallemovi;
 
     /**
      * Initializes the controller class.
@@ -39,10 +56,12 @@ public class FXMLcajaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-  	
+  	fechahoraapertura.
     
     }
 
+    
+    
 
     @FXML
     private void abrircaja(ActionEvent event) {
@@ -52,6 +71,10 @@ public class FXMLcajaController implements Initializable {
 
     @FXML
     private void cerrarcaja(ActionEvent event) {
+    }
+
+    @FXML
+    private void retirardinero(ActionEvent event) {
     }
 
 

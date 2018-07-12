@@ -8,11 +8,16 @@ package edu.itssnpp.itsmarket.login.dashboard;
 import edu.itssnpp.itsmarket.entidades.Empleado;
 import edu.itssnpp.itsmarket.entidades.Venta;
 import java.net.URL;
+import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 /**
@@ -65,8 +70,20 @@ public class DashboardController implements Initializable {
 
     }
 
-    public void lblingresosemanal() {
+    public void calculoMovimientoSemanal() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("edu.itssnpp_ITSMarket_jar_1.0-SNAPSHOTPU");
+        EntityManager em = emf.createEntityManager();
+
+        TypedQuery<Venta> q = em.createQuery("SELECT aux FROM Venta aux WHERE aux.fecha>==:fe", Venta.class);
+        q.setParameter("fe", new Date());
+        List<Venta> liz = q.getResultList();
+        int totalventas=0;
         
 
     }
+
+    lblingresosemanal.setText (value);
+    lblegresosemanal.setText (value);
+    desdefechasemanal.setText (value);
+    hastafechamensual.setText (value);
 }

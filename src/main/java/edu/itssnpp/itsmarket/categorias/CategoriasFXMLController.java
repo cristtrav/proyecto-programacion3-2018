@@ -50,7 +50,13 @@ public class CategoriasFXMLController implements Initializable {
 
     @FXML
     private void Agregar(ActionEvent event) {
-        
+        if(txf.getText().isEmpty()){
+          Alert a= new Alert(AlertType.INFORMATION);
+          a.setTitle("Error al agregar Categoria");
+          a.setHeaderText("Usted no a ingresado ninguna categoria para agregar, por favor ingrese una categoria");
+          a.showAndWait();
+        }
+        else{
         EntityManager em=emf.createEntityManager();
         if(agregar.getText().equals("Agregar")){
         CategoriaCliente cc= new CategoriaCliente();
@@ -71,6 +77,7 @@ public class CategoriasFXMLController implements Initializable {
         agregar.setText("Agregar");   
         }
         cargardatos(); 
+        }
     }
 
     @FXML

@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
@@ -65,7 +66,20 @@ public class ClientesFXMLController implements Initializable {
 
     @FXML
     private void agregar(ActionEvent event) {
-        
+        if(nombre.getText().isEmpty()){
+          Alert a= new Alert(Alert.AlertType.INFORMATION);
+          a.setTitle("Error al agregar Cliente");
+          a.setHeaderText("Usted no a ingresado ningun nombre para agregar, por favor ingrese un nombre");
+          a.showAndWait();
+        }
+        else{
+            if(cinro.getText().isEmpty()){
+            Alert b= new Alert(Alert.AlertType.INFORMATION);
+            b.setTitle("Error al agregar Cedula de Identidad");
+            b.setHeaderText("Usted no a ingresado ningun número de cedula, por favor ingrese un número");
+            b.showAndWait();
+            }
+            else{
         EntityManager em=emf.createEntityManager();
         if(agregar.getText().equals("Agregar")){
         Cliente c= new Cliente();
@@ -119,10 +133,12 @@ public class ClientesFXMLController implements Initializable {
             if(t.getText().equals("Cliente")){
                 MainApp.VENTANAPRINCIPAL.tabPane.getTabs().remove(t);
                 break;
+                }
+              }
             }
+          }
         }
-        }
-        
+               
         
     }
     private void cargarciudad(){

@@ -27,7 +27,9 @@
         <menus>
           <Menu mnemonicParsing="false" text="Archivo">
             <items>
-              <MenuItem mnemonicParsing="false" text="Cerrar" />
+                  <MenuItem mnemonicParsing="false" onAction="#onActiononClientes" text="Clientes" />
+                  <MenuItem mnemonicParsing="false" onAction="#onActionOnCategoriaCliente" text="Categoría Cliente" />
+              <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Editar">

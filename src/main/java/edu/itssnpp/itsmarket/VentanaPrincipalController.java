@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
@@ -22,9 +23,8 @@ public class VentanaPrincipalController implements Initializable {
 
     private static final Logger LOG = Logger.getLogger(VentanaPrincipalController.class.getName());
 
-    private Label label;
     @FXML
-    private TabPane tabPane;
+    public TabPane tabPane;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -59,5 +59,16 @@ public class VentanaPrincipalController implements Initializable {
                 errDlg.showAndWait();
             }
         }
+    }
+
+    @FXML
+    private void onActiononClientes(ActionEvent event) {
+        
+        this.cargarModulo("/fxml/clientes/TablaClientesFXML.fxml", "Tabla Clientes");
+    }
+
+    @FXML
+    private void onActionOnCategoriaCliente(ActionEvent event) {
+        this.cargarModulo("/fxml/categorias/CategoriasFXML.fxml", "Categoría Cliente");
     }
 }

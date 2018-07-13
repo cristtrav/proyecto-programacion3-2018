@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="edu.itssnpp.itsmarket.FXMLabrircajaController">
+   <children>
+      <AnchorPane layoutX="181.0" layoutY="39.0" prefHeight="282.0" prefWidth="253.0" style="-fx-border-color: black;">
+         <children>
+            <Text layoutX="43.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Abrir Caja">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Text>
+            <TextField fx:id="montoinicial2" layoutX="41.0" layoutY="115.0" />
+            <Text layoutX="75.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monto Inicial" wrappingWidth="102.61474609375">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Button fx:id="abrircaja2" layoutX="34.0" layoutY="230.0" mnemonicParsing="false" text="Abrir Caja" />
+            <Button fx:id="cancelar" layoutX="163.0" layoutY="230.0" mnemonicParsing="false" text="Cancelar" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

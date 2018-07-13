@@ -21,6 +21,8 @@ public class DatosFijos {
     public static final Modulo MODULO_TIMBRADO= new Modulo();
     public static final Modulo MODULO_CAJA= new Modulo();
     public static final Modulo MODULO_MARCA= new Modulo();
+    public static final Modulo MODULO_DEPOSITO= new Modulo();
+    public static final Modulo MODULO_STOCK= new Modulo();
   
     
    
@@ -62,6 +64,10 @@ public class DatosFijos {
     public static final Funcionalidad FUNCIONALIDAD_AGREGAR_MARCA= new Funcionalidad();
     public static final Funcionalidad FUNCIONALIDAD_MODIFICAR_MARCA= new Funcionalidad();
     public static final Funcionalidad FUNCIONALIDAD_ELIMINAR_MARCA= new Funcionalidad();
+    public static final Funcionalidad FUNCIONALIDAD_AGREGAR_DEPOSITO= new Funcionalidad();
+    public static final Funcionalidad FUNCIONALIDAD_MODIFICAR_DEPOSITO= new Funcionalidad();
+    public static final Funcionalidad FUNCIONALIDAD_ELIMINAR_DEPOSITO= new Funcionalidad();
+    public static final Funcionalidad FUNCIONALIDAD_AGREGAR_STOCK= new Funcionalidad();
   
     
     
@@ -103,6 +109,12 @@ public class DatosFijos {
         
         MODULO_MARCA.setIdmodulo(12);
         MODULO_MARCA.setNombre("Marca");
+        
+        MODULO_DEPOSITO.setIdmodulo(13);
+        MODULO_DEPOSITO.setNombre("Deposito");
+        
+        MODULO_STOCK.setIdmodulo(14);
+        MODULO_STOCK.setNombre("Stock");
         
         
         
@@ -261,6 +273,21 @@ public class DatosFijos {
          FUNCIONALIDAD_ELIMINAR_MARCA.setModulo(MODULO_MARCA);
         
          
+         FUNCIONALIDAD_AGREGAR_DEPOSITO.setIdfuncionalidad(37);
+         FUNCIONALIDAD_AGREGAR_DEPOSITO.setNombre("Agregar Deposito");
+         FUNCIONALIDAD_AGREGAR_DEPOSITO.setModulo(MODULO_DEPOSITO);
+         
+         FUNCIONALIDAD_MODIFICAR_DEPOSITO.setIdfuncionalidad(38);
+         FUNCIONALIDAD_MODIFICAR_DEPOSITO.setNombre("Modificar Deposito");
+         FUNCIONALIDAD_MODIFICAR_DEPOSITO.setModulo(MODULO_DEPOSITO);
+         
+         FUNCIONALIDAD_ELIMINAR_DEPOSITO.setIdfuncionalidad(39);
+         FUNCIONALIDAD_ELIMINAR_DEPOSITO.setNombre("Eliminar Deposito");
+         FUNCIONALIDAD_ELIMINAR_DEPOSITO.setModulo(MODULO_DEPOSITO);
+         
+         FUNCIONALIDAD_AGREGAR_STOCK.setIdfuncionalidad(40);
+         FUNCIONALIDAD_AGREGAR_STOCK.setNombre("Agregar Stock");
+         FUNCIONALIDAD_AGREGAR_STOCK.setModulo(MODULO_STOCK);
     }
 
     public static void verificarModulos() {
@@ -280,9 +307,9 @@ public class DatosFijos {
         em.merge(MODULO_TIMBRADO);
         em.merge(MODULO_CAJA);
         em.merge(MODULO_MARCA);
+        em.merge(MODULO_DEPOSITO);
+        em.merge(MODULO_STOCK);
         
-        
-
         em.getTransaction().commit();
     }
 
@@ -328,6 +355,11 @@ public class DatosFijos {
         em.merge(FUNCIONALIDAD_AGREGAR_MARCA);
         em.merge(FUNCIONALIDAD_MODIFICAR_MARCA);
         em.merge(FUNCIONALIDAD_ELIMINAR_MARCA);
+        em.merge(FUNCIONALIDAD_AGREGAR_DEPOSITO);
+        em.merge(FUNCIONALIDAD_MODIFICAR_DEPOSITO);
+        em.merge(FUNCIONALIDAD_ELIMINAR_DEPOSITO);
+        em.merge(FUNCIONALIDAD_AGREGAR_STOCK);
+
 
         em.getTransaction().commit();
     }

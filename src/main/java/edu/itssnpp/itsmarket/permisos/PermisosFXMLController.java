@@ -4,12 +4,16 @@ import edu.itssnpp.itsmarket.entidades.Empleado;
 import edu.itssnpp.itsmarket.entidades.Funcionalidad;
 import edu.itssnpp.itsmarket.entidades.Modulo;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -77,20 +81,27 @@ public class PermisosFXMLController implements Initializable {
 
     @FXML
     private void Eliminar(ActionEvent event) {
-
         EntityManager em = emf.createEntityManager();
         list2.getSelectionModel().getSelectedItem();
 
-        Funcionalidad f = list1.getSelectionModel().getSelectedItem();
-        list2.getItems().remove(f);
+        Funcionalidad f = list2.getSelectionModel().getSelectedItem();
 
         Empleado e = box1.getSelectionModel().getSelectedItem();
-        e.getFuncionalidadList().remove(list1.getSelectionModel().getSelectedItem());
-
+        e.getFuncionalidadList().remove(f);
+        
+        Alert el= new Alert(AlertType.CONFIRMATION);
+        el.setTitle("Eliminar");
+        el.setHeaderText("¿Desea Eliminar Este Permiso?");
+        Optional<ButtonType> result =el.showAndWait();
+        
+        if(result.get()== ButtonType.OK)
+        {
+            
         em.getTransaction().begin();
         em.merge(e);
-        em.getTransaction().commit();
-
+        em.getTransaction().commit(); 
+        list2.getItems().remove(f);
+        }
     }
 
     private void cargarmodulos() {
@@ -119,7 +130,6 @@ public class PermisosFXMLController implements Initializable {
         list1.getItems().addAll(q.getResultList());
     }
 
-    @FXML
     private void cargarempleado() {
 
         EntityManager em = emf.createEntityManager();

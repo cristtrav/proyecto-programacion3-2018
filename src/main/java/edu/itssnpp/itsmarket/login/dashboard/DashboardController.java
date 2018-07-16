@@ -5,10 +5,12 @@
  */
 package edu.itssnpp.itsmarket.login.dashboard;
 
-import edu.itssnpp.itsmarket.entidades.Empleado;
 import edu.itssnpp.itsmarket.entidades.Venta;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -31,8 +33,6 @@ public class DashboardController implements Initializable {
     private Label lblingresosemanal;
     @FXML
     private Label desdefechasemanal;
-    @FXML
-    private Label hastafechamensual;
     @FXML
     private Label lblegresosemanal;
     @FXML
@@ -61,6 +61,8 @@ public class DashboardController implements Initializable {
     private VBox listaproductos;
     @FXML
     private Label lbltotalDeuda;
+    @FXML
+    private Label hastafechasemanal;
 
     /**
      * Initializes the controller class.
@@ -74,16 +76,89 @@ public class DashboardController implements Initializable {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("edu.itssnpp_ITSMarket_jar_1.0-SNAPSHOTPU");
         EntityManager em = emf.createEntityManager();
 
-        TypedQuery<Venta> q = em.createQuery("SELECT aux FROM Venta aux WHERE aux.fecha>==:fe", Venta.class);
-        q.setParameter("fe", new Date());
+        TypedQuery<Venta> q = em.createQuery("SELECT aux FROM Venta aux WHERE aux.fecha>= :fechainicio AND fecha<=fechafin=:fec", Venta.class);
+
+        Calendar kal = new GregorianCalendar();
+        kal.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+        kal.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
+
+        q.setParameter("fec", new Date());
+        q.setParameter("fechainicio", kal.getTime());
+        q.setParameter("fechafin", kal.getTime());
+
         List<Venta> liz = q.getResultList();
-        int totalventas=0;
-        
+
+        int totalventas = 0;
+        Date fachada1 = new Date();
+        Date fachada2 = new Date();
+
+        SimpleDateFormat fch = new SimpleDateFormat("dd/mm/yy");
+
+        for (Venta ve : liz) {
+            totalventas = totalventas + ve.getTotal();
+        }
+        lblingresosemanal.setText(totalventas + " ");
+        desdefechasemanal.setText(fch.format(fachada1));
+        hastafechasemanal.setText(fch.format(fachada2));
+    }
+
+    public void calculoMovimientoMensual() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("edu.itssnpp_ITSMarket_jar_1.0-SNAPSHOTPU");
+        EntityManager em = emf.createEntityManager();
+
+        TypedQuery<Venta> q = em.createQuery("SELECT aux FROM Venta aux WHERE aux.fecha>= :fechainicio AND fecha<=fechafin=:fec", Venta.class);
+
+        Calendar kal = new GregorianCalendar();
+        kal.add(Calendar.MONTH, 1);
+        kal.set(Calendar.DAY_OF_MONTH, 1);
+        kal.add(Calendar.DAY_OF_MONTH, -1);
+
+        q.setParameter("fec", new Date());
+        q.setParameter("fechainicio", kal.getTime());
+        q.setParameter("fechafin", kal.getTime());
+
+        List<Venta> liz = q.getResultList();
+
+        int totalventasMens = 0;
+        Date facha = new Date();
+
+        SimpleDateFormat fch = new SimpleDateFormat("dd/mm/yy");
+
+        for (Venta ve : liz) {
+            totalventasMens = totalventasMens + ve.getTotal();
+        }
+        lblingresomensual.setText(totalventasMens + " ");
+        fechaMovMensual.setText(fch.format(facha));
+    }
+
+    public void calculoMovimientoAnual() {
 
     }
 
-    lblingresosemanal.setText (value);
-    lblegresosemanal.setText (value);
-    desdefechasemanal.setText (value);
-    hastafechamensual.setText (value);
+    public void topProductosMasVendidos() {
+
+    }
+
+    public void totalVentasDia() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("edu.itssnpp_ITSMarket_jar_1.0-SNAPSHOTPU");
+        EntityManager em = emf.createEntityManager();
+
+        TypedQuery<Venta> q = em.createQuery("SELECT aux FROM Venta aux WHERE aux.fecha=:fec", Venta.class);
+        q.setParameter("fec", new Date());
+        List<Venta> liz = q.getResultList();
+
+        int total = 0;
+        Date fech = new Date();
+
+        SimpleDateFormat fc = new SimpleDateFormat("dd/mm/yy");
+        for (Venta ve : liz) {
+            total = total + ve.getTotal();
+        }
+        lbltotalventasdia.setText(total + " ");
+        lblventasdia.setText(fc.format(fech));
+    }
+
+    public void calculoDeudaTotal() {
+
+    }
 }

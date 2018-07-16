@@ -71,4 +71,16 @@ public class VentanaPrincipalController implements Initializable {
     private void onActionOnCategoriaCliente(ActionEvent event) {
         this.cargarModulo("/fxml/categorias/CategoriasFXML.fxml", "Categoría Cliente");
     }
+
+    @FXML
+    private void OnActionModulos(ActionEvent event) {
+        this.cargarModulo("/fxml/permisos/PermisosFXML.fxml", "Permisos");
+        
+    }
+
+    
+
+  
+    
+    
 }

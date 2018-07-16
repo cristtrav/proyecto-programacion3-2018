@@ -106,12 +106,21 @@ public class TablaClientesFXMLController implements Initializable {
 
     @FXML
     private void modificar(ActionEvent event) {
+        if(this.comprobarPermiso(2)){
         this.cargarModulo("/fxml/clientes/ClientesFXML.fxml", "Cliente", 2);
         cargarclientes();
+        }
+        else{
+            Alert a= new Alert(AlertType.INFORMATION);
+            a.setTitle("Advertencia");
+            a.setHeaderText("Usted no posee el permiso para realizar esta accion, favor solicitar permiso");
+            a.showAndWait();
+        }
     }
 
     @FXML
     private void eliminar(ActionEvent event) {
+        if(this.comprobarPermiso(3)){
         EntityManager em=emf.createEntityManager();
         lista.getSelectionModel().getSelectedItem();
         Alert e= new Alert(AlertType.CONFIRMATION);
@@ -122,7 +131,15 @@ public class TablaClientesFXMLController implements Initializable {
         em.getTransaction().begin();
         em.remove(em.merge(lista.getSelectionModel().getSelectedItem()));
         em.getTransaction().commit();
-        cargarclientes();}
+        cargarclientes();
+        }
+        }
+        else{
+          Alert a= new Alert(AlertType.INFORMATION);
+            a.setTitle("Advertencia");
+            a.setHeaderText("Usted no posee el permiso para realizar esta accion, favor solicitar permiso");
+            a.showAndWait();  
+        }
     }
     private void cargarclientes(){
       EntityManager em= emf.createEntityManager();

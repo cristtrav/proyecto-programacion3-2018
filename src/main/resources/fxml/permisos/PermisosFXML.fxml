@@ -14,8 +14,8 @@
             <Font name="System Italic" size="19.0" />
          </font>
       </Label>
-      <ListView fx:id="list1" layoutX="49.0" layoutY="368.0" prefHeight="236.0" prefWidth="213.0" />
-      <ListView fx:id="list2" layoutX="374.0" layoutY="176.0" prefHeight="422.0" prefWidth="293.0" />
+      <ListView fx:id="list1" layoutX="49.0" layoutY="368.0" prefHeight="236.0" prefWidth="213.0" AnchorPane.bottomAnchor="86.0" AnchorPane.topAnchor="368.0" />
+      <ListView fx:id="list2" layoutX="374.0" layoutY="176.0" prefHeight="422.0" prefWidth="293.0" AnchorPane.bottomAnchor="92.0" AnchorPane.topAnchor="176.0" />
       <Label layoutX="49.0" layoutY="328.0" prefHeight="26.0" prefWidth="150.0" text="Funcionalidad" textFill="#140303">
          <font>
             <Font name="System Italic" size="19.0" />
@@ -26,11 +26,11 @@
             <Font name="System Italic" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="agregar" layoutX="172.0" layoutY="611.0" mnemonicParsing="false" onAction="#Agregar" text="Agregar" textFill="#110000">
+      <Button fx:id="agregar" layoutX="172.0" layoutY="611.0" mnemonicParsing="false" onAction="#Agregar" text="Agregar" textFill="#110000" AnchorPane.bottomAnchor="51.0">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Button fx:id="eliminar" layoutX="589.0" layoutY="611.0" mnemonicParsing="false" onAction="#Eliminar" text="Eliminar">
+      <Button fx:id="eliminar" layoutX="589.0" layoutY="611.0" mnemonicParsing="false" onAction="#Eliminar" text="Eliminar" AnchorPane.bottomAnchor="51.0">
          <font>
             <Font size="14.0" />
          </font></Button>

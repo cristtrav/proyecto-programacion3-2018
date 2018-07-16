@@ -6,9 +6,12 @@
 package edu.itssnpp.itsmarket.clientes;
 
 import edu.itssnpp.itsmarket.MainApp;
+import static edu.itssnpp.itsmarket.MainApp.EMPLEADO;
 import edu.itssnpp.itsmarket.entidades.CategoriaCliente;
 import edu.itssnpp.itsmarket.entidades.Ciudad;
 import edu.itssnpp.itsmarket.entidades.Cliente;
+import edu.itssnpp.itsmarket.entidades.Empleado;
+import edu.itssnpp.itsmarket.entidades.Funcionalidad;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
@@ -83,12 +86,22 @@ public class TablaClientesFXMLController implements Initializable {
         categoria.setCellValueFactory(new PropertyValueFactory<>("categoriaCliente"));
         categoria.setCellFactory((TableColumn<Cliente, CategoriaCliente>cc)-> new CategoriaTableCell());
         
+        EntityManager em=emf.createEntityManager();
+        MainApp.EMPLEADO= em.find(Empleado.class, 1);
     }    
 
     @FXML
     private void agregar(ActionEvent event) {
+        if(this.comprobarPermiso(1)){
         this.cargarModulo("/fxml/clientes/ClientesFXML.fxml", "Cliente", 1);
         cargarclientes();
+        }
+        else{
+            Alert a= new Alert(AlertType.INFORMATION);
+            a.setTitle("Advertencia");
+            a.setHeaderText("Usted no posee el permiso para realizar esta accion, favor solicitar permiso");
+            a.showAndWait();
+        }
     }
 
     @FXML
@@ -166,6 +179,17 @@ public class TablaClientesFXMLController implements Initializable {
       q.setParameter("txt", "%"+b.toLowerCase()+"%");
       lista.getItems().clear();
       lista.getItems().addAll(q.getResultList());
+    }
+    
+    private boolean comprobarPermiso(Integer idFuncionalidad){
+       boolean permitido=false;
+       for(Funcionalidad f:EMPLEADO.getFuncionalidadList()){
+           if(f.getIdfuncionalidad().equals(idFuncionalidad)){
+               permitido=true;
+               break;
+           }
+       }
+       return permitido;
     }
     
 }

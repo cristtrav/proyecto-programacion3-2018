@@ -1,5 +1,6 @@
 package edu.itssnpp.itsmarket;
 
+import edu.itssnpp.itsmarket.entidades.Empleado;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +12,7 @@ import javafx.stage.Stage;
 public class MainApp extends Application {
     
 public static VentanaPrincipalController VENTANAPRINCIPAL;
+public static Empleado EMPLEADO;
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader= new FXMLLoader();

@@ -50,8 +50,7 @@ public class CategoriasFXMLController implements Initializable {
         cargardatos();
        columna.setCellValueFactory(new PropertyValueFactory<>("nombre"));
        
-       EntityManager em=emf.createEntityManager();
-       MainApp.EMPLEADO= em.find(Empleado.class, 1);
+      
     }    
 
 

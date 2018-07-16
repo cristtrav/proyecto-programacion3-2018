@@ -86,8 +86,7 @@ public class TablaClientesFXMLController implements Initializable {
         categoria.setCellValueFactory(new PropertyValueFactory<>("categoriaCliente"));
         categoria.setCellFactory((TableColumn<Cliente, CategoriaCliente>cc)-> new CategoriaTableCell());
         
-        EntityManager em=emf.createEntityManager();
-        MainApp.EMPLEADO= em.find(Empleado.class, 1);
+        
     }    
 
     @FXML

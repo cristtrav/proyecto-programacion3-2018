@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
@@ -25,7 +26,12 @@ public class VentanaPrincipalController implements Initializable {
 
     @FXML
     public TabPane tabPane;
-
+    @FXML
+    private RadioMenuItem itempromociones;
+    
+    private void handleButtonAction(ActionEvent event) {
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("edu.itssnpp_ITSMarket_jar_1.0-SNAPSHOTPU");
@@ -59,28 +65,6 @@ public class VentanaPrincipalController implements Initializable {
                 errDlg.showAndWait();
             }
         }
-    }
-
-    @FXML
-    private void onActiononClientes(ActionEvent event) {
-        
-        this.cargarModulo("/fxml/clientes/TablaClientesFXML.fxml", "Tabla Clientes");
-    }
-
-    @FXML
-    private void onActionOnCategoriaCliente(ActionEvent event) {
-        this.cargarModulo("/fxml/categorias/CategoriasFXML.fxml", "Categoría Cliente");
-    }
-
-    @FXML
-    private void OnActionModulos(ActionEvent event) {
-        this.cargarModulo("/fxml/permisos/PermisosFXML.fxml", "Permisos");
-        
-    }
+    }}
 
     
-
-  
-    
-    
-}

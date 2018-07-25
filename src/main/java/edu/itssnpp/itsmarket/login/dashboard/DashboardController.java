@@ -5,13 +5,18 @@
  */
 package edu.itssnpp.itsmarket.login.dashboard;
 
+import edu.itssnpp.itsmarket.entidades.Compra;
+import edu.itssnpp.itsmarket.entidades.DetalleVenta;
+import edu.itssnpp.itsmarket.entidades.Producto;
 import edu.itssnpp.itsmarket.entidades.Venta;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -66,6 +71,9 @@ public class DashboardController implements Initializable {
 
     /**
      * Initializes the controller class.
+     *
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -76,7 +84,8 @@ public class DashboardController implements Initializable {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("edu.itssnpp_ITSMarket_jar_1.0-SNAPSHOTPU");
         EntityManager em = emf.createEntityManager();
 
-        TypedQuery<Venta> q = em.createQuery("SELECT aux FROM Venta aux WHERE aux.fecha>= :fechainicio AND fecha<=fechafin=:fec", Venta.class);
+        TypedQuery<Venta> q = em.createQuery("SELECT aux FROM Venta aux WHERE aux.fecha >=:fechainicio AND aux.fecha<=:fechafin", Venta.class);
+        TypedQuery<Compra> w = em.createQuery("SELECT auxi FROM Compra auxi WHERE auxi.fecha >=:fechain AND auxi.fecha<=:fechafi", Compra.class);
 
         Calendar kal = new GregorianCalendar();
         kal.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
@@ -85,10 +94,16 @@ public class DashboardController implements Initializable {
         q.setParameter("fec", new Date());
         q.setParameter("fechainicio", kal.getTime());
         q.setParameter("fechafin", kal.getTime());
+        w.setParameter("fechain", kal.getTime());
+        w.setParameter("fechafi", kal.getTime());
 
         List<Venta> liz = q.getResultList();
+        List<Compra> lizi = w.getResultList();
 
         int totalventas = 0;
+        int totalcompras = 0;
+        int totaltotal = 0;
+        
         Date fachada1 = new Date();
         Date fachada2 = new Date();
 
@@ -97,7 +112,16 @@ public class DashboardController implements Initializable {
         for (Venta ve : liz) {
             totalventas = totalventas + ve.getTotal();
         }
+        for (Compra co : lizi) {
+            totalcompras = totalcompras + co.getTotal();
+        }
+
+        totaltotal = totalventas - totalcompras;
+
         lblingresosemanal.setText(totalventas + " ");
+        lblegresosemanal.setText(totalcompras + " ");
+        lbltotalsemanal.setText(totaltotal + " ");
+
         desdefechasemanal.setText(fch.format(fachada1));
         hastafechasemanal.setText(fch.format(fachada2));
     }
@@ -106,7 +130,7 @@ public class DashboardController implements Initializable {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("edu.itssnpp_ITSMarket_jar_1.0-SNAPSHOTPU");
         EntityManager em = emf.createEntityManager();
 
-        TypedQuery<Venta> q = em.createQuery("SELECT aux FROM Venta aux WHERE aux.fecha>= :fechainicio AND fecha<=fechafin=:fec", Venta.class);
+        TypedQuery<Venta> q = em.createQuery("SELECT aux FROM Venta aux WHERE aux.fecha >=:fechainicio AND aux.fecha <= :fechafin", Venta.class);
 
         Calendar kal = new GregorianCalendar();
         kal.add(Calendar.MONTH, 1);
@@ -132,10 +156,53 @@ public class DashboardController implements Initializable {
     }
 
     public void calculoMovimientoAnual() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("edu.itssnpp_ITSMarket_jar_1.0-SNAPSHOTPU");
+        EntityManager em = emf.createEntityManager();
+
+        TypedQuery<Venta> q = em.createQuery("SELECT aux FROM Venta aux WHERE aux.fecha >=:fechainicio AND aux.fecha <= :fechafin", Venta.class);
+
+        Calendar kal = new GregorianCalendar();
+        int year = kal.get(Calendar.YEAR);
+        kal.set(Calendar.DAY_OF_MONTH, 1);
+        kal.set(Calendar.MONTH, 0);
+        kal.set(Calendar.DAY_OF_MONTH, 31);
+        kal.set(Calendar.MONTH, 11);
+
+        q.setParameter("fechainicio", kal.getTime());
+        q.setParameter("fechafin", kal.getTime());
+
+        List<Venta> liz = q.getResultList();
+
+        int totalventasMens = 0;
+        Date facha = new Date();
+
+        SimpleDateFormat fch = new SimpleDateFormat("dd/mm/yy");
+
+        for (Venta ve : liz) {
+            totalventasMens = totalventasMens + ve.getTotal();
+        }
+        lblingresoanual.setText(totalventasMens + " ");
+        lblanho.setText(fch.format(facha));
 
     }
 
     public void topProductosMasVendidos() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("edu.itssnpp_ITSMarket_jar_1.0-SNAPSHOTPU");
+        EntityManager em = emf.createEntityManager();
+
+        TypedQuery<DetalleVenta> q = em.createQuery("SELECT aux FROM DetalleVenta aux", DetalleVenta.class);
+        q.setParameter("DetalleVenta", getClass());
+        List<DetalleVenta> lizta = q.getResultList();
+        Map<Producto, Double> calculo = new HashMap<>();
+        for (DetalleVenta dv : lizta) {
+            if (calculo.get(dv.getProducto()) == null) {
+                calculo.put(dv.getProducto(), dv.getCantidad());
+            } else {
+                double ca = calculo.get(dv.getProducto());
+                ca = ca + dv.getCantidad();
+                calculo.put(dv.getProducto(), ca);
+            }
+        }
 
     }
 
@@ -159,6 +226,18 @@ public class DashboardController implements Initializable {
     }
 
     public void calculoDeudaTotal() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("edu.itssnpp_ITSMarket_jar_1.0-SNAPSHOTPU");
+        EntityManager em = emf.createEntityManager();
 
+        TypedQuery<Compra> q = em.createQuery("SELECT aux FROM Compra aux", Compra.class);
+        q.setParameter("feci", new Date());
+        List<Compra> liza = q.getResultList();
+
+        int totalco = 0;
+
+        for (Compra co : liza) {
+            totalco = totalco + co.getTotal();
+        }
+        lbltotalventasdia.setText(totalco + " ");
     }
 }

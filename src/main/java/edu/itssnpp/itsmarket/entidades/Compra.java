@@ -34,6 +34,9 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Compra.findAll", query = "SELECT c FROM Compra c")})
 public class Compra implements Serializable {
 
+    @Column(name = "total")
+    private Integer total;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,8 +46,6 @@ public class Compra implements Serializable {
     @Column(name = "fecha")
     @Temporal(TemporalType.DATE)
     private Date fecha;
-    @Column(name = "total")
-    private String total;
     @Column(name = "contado")
     private Boolean contado;
     @Column(name = "nro_factura")
@@ -89,13 +90,6 @@ public class Compra implements Serializable {
         this.fecha = fecha;
     }
 
-    public String getTotal() {
-        return total;
-    }
-
-    public void setTotal(String total) {
-        this.total = total;
-    }
 
     public Boolean getContado() {
         return contado;
@@ -192,6 +186,14 @@ public class Compra implements Serializable {
     @Override
     public String toString() {
         return "edu.itssnpp.itsmarket.entidades.Compra[ idcompra=" + idcompra + " ]";
+    }
+
+    public Integer getTotal() {
+        return total;
+    }
+
+    public void setTotal(Integer total) {
+        this.total = total;
     }
     
 }

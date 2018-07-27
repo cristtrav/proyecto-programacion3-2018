@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
@@ -23,12 +24,7 @@ public class VentanaPrincipalController implements Initializable {
     private Label label;
     @FXML
     private TabPane tabPane;
-    
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hola mundo!");
-    }
-    
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -50,5 +46,9 @@ public class VentanaPrincipalController implements Initializable {
             errDlg.setContentText(ex.getMessage());
             errDlg.showAndWait();
         }
+    }
+
+    @FXML
+    private void onActionAbrirCaja(ActionEvent event) {
     }
 }

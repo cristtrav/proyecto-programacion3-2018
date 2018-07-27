@@ -5,7 +5,23 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.itssnpp.itsmarket.caja.FXMLabrircajaController">
-    
+    <children>
+    <Text layoutX="43.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Abrir Caja">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Text>
+      <TextField fx:id="montoinicial2" layoutX="41.0" layoutY="115.0" />
+      <Text layoutX="75.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monto Inicial" wrappingWidth="102.61474609375">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Button fx:id="abrircaja2" layoutX="34.0" layoutY="230.0" mnemonicParsing="false" onAction="#abrircaja2" text="Abrir Caja" />
+      <Button fx:id="cancelar" layoutX="163.0" layoutY="230.0" mnemonicParsing="false" onAction="#cancelar2" text="Cancelar" />
+   </children>
 </AnchorPane>

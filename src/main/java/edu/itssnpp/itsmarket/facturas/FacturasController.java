@@ -5,6 +5,7 @@
  */
 package edu.itssnpp.itsmarket.facturas;
 
+import edu.itssnpp.itsmarket.entidades.Cliente;
 import edu.itssnpp.itsmarket.entidades.DetalleVenta;
 import edu.itssnpp.itsmarket.entidades.Producto;
 import java.net.URL;
@@ -21,11 +22,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 /**
  * FXML Controller class
@@ -41,7 +48,7 @@ public class FacturasController implements Initializable {
     @FXML
     private TextField total;
     @FXML
-    private ComboBox<String> ComboCliente;
+    private ComboBox<Cliente> ComboCliente;
     @FXML
     private TextField txtRuc;
     @FXML
@@ -57,7 +64,7 @@ public class FacturasController implements Initializable {
     @FXML
     private TableView<DetalleVenta> tlbventa;
     private final ObservableList<DetalleVenta> lstventa = FXCollections.observableArrayList();
-    
+
     @FXML
     private TableColumn<DetalleVenta, Date> lstfecha;
     @FXML
@@ -78,32 +85,36 @@ public class FacturasController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        this.dpFecha.setValue(LocalDate.now());
-        ComboCliente.getItems().addAll("Esteban Dido","Elsa Pito", "Elva Gina", "Elvio Lado", "Elber Galarga");
-        Producto p=new Producto();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("edu.itssnpp_ITSMarket_jar_1.0-SNAPSHOTPU");
+        EntityManager em = emf.createEntityManager();
+
+        this.ComboProd.setCellFactory((ListView<Producto> p) -> new ProductoListCell());
+        this.ComboProd.setButtonCell(new ProductoListCell());
+
+        TypedQuery<Producto> q = em.createQuery("SELECT p FROM Producto p", Producto.class);
+        this.ComboProd.getItems().addAll(q.getResultList());
+   
         
+        this.ComboCliente.setCellFactory((ListView<Cliente> p) -> new ClienteLIstCell());
+        this.ComboCliente.setButtonCell(new ClienteLIstCell());
+
+        TypedQuery<Cliente> e = em.createQuery("SELECT p FROM Cliente p", Cliente.class);
+        this.ComboCliente.getItems().addAll(e.getResultList());
         
+
         lstfecha.setCellValueFactory(
-                new PropertyValueFactory<>("fecha")
-        );
+                new PropertyValueFactory<>("fecha"));
         lstproducto.setCellValueFactory(
-                new PropertyValueFactory<>("producto")
-        );
+                new PropertyValueFactory<>("producto"));
         lstprecio.setCellValueFactory(
-                new PropertyValueFactory<>("precio")
-        );
+                new PropertyValueFactory<>("precio"));
         lstcantidad.setCellValueFactory(
-                new PropertyValueFactory<>("cantidad")
-        );
+                new PropertyValueFactory<>("cantidad"));
         lstimporte.setCellValueFactory(
-                new PropertyValueFactory<>("importe")
-        );
-        
+                new PropertyValueFactory<>("importe"));
         lstfecha.setCellFactory((TableColumn<DetalleVenta, Date>f)-> new FechaVentaTableCell());
-        
         this.tlbventa.setItems(lstventa);
-        
-    }    
+    }
 
     @FXML
     private void suubtotal(ActionEvent event) {
@@ -119,41 +130,28 @@ public class FacturasController implements Initializable {
 
     @FXML
     private void Cliente(ActionEvent event) {
-        String valorcomparar = ComboCliente.getSelectionModel().getSelectedItem();
-        if (valorcomparar.equals("Esteban Dido")) {
-            txtRuc.clear();
-            txtRuc.setText("19216911");
-        }
-        if (valorcomparar.equals("Elsa Pito")) {
-            txtRuc.clear();
-            txtRuc.setText("19216912");
-        }
-        if (valorcomparar.equals("Elva Gina")) {
-            txtRuc.clear();
-            txtRuc.setText("19216913");
-        }
-        if (valorcomparar.equals("Elvio Lado")) {
-            txtRuc.clear();
-            txtRuc.setText("19216914");
-        }
-        if (valorcomparar.equals("Elber Galarga")) {
-            txtRuc.clear();
-            txtRuc.setText("19216915");
-        }
+        String ruc = this.ComboCliente.getValue().getCi()+"-"+this.ComboCliente.getValue().getDvRuc();
+        txtRuc.setText(ruc);
+        
+        
+        
     }
 
     @FXML
     private void Ruc(ActionEvent event) {
+
     }
 
     @FXML
     private void Producto(ActionEvent event) {
-        
+
         txtCantidad.setText("1");
     }
 
     @FXML
     private void Precio(ActionEvent event) {
+        Integer precio = this.ComboProd.getValue().getPrecioVenta();
+        txtPrecio.setText(precio +"");
     }
 
     @FXML
@@ -163,24 +161,49 @@ public class FacturasController implements Initializable {
     @FXML
     private void agg(ActionEvent event) {
         DetalleVenta p = new DetalleVenta();
-                
-        LocalDate fechaSeleccionada=this.dpFecha.getValue();
-        Calendar cal=new GregorianCalendar(fechaSeleccionada.getYear(), fechaSeleccionada.getMonthValue()-1, fechaSeleccionada.getDayOfMonth());
+
+        LocalDate fechaSeleccionada = this.dpFecha.getValue();
+        Calendar cal = new GregorianCalendar(fechaSeleccionada.getYear(), fechaSeleccionada.getMonthValue() - 1, fechaSeleccionada.getDayOfMonth());
         p.setFecha(cal.getTime());
-        Integer cant=Integer.parseInt(this.txtCantidad.getText());
-        Integer pu=Integer.parseInt(this.txtPrecio.getText());
+        Integer cant = Integer.parseInt(this.txtCantidad.getText());
+        Integer pu = Integer.parseInt(this.txtPrecio.getText());
         p.setCantidad(cant);
         p.setPrecio(pu);
-        p.setImporte(pu*cant);
+        p.setImporte(pu * cant);
         p.setProducto(ComboProd.getSelectionModel().getSelectedItem());
-        
-        
-        
+       
         this.lstventa.add(p);
+
+        txtPrecio.setText("0");
+        txtRuc.setText("0");
+        txtCantidad.setText("0");
+        ComboCliente.getSelectionModel().clearAndSelect(0);
+        ComboProd.getSelectionModel().clearAndSelect(0);
+        this.sumarSubtotal();
     }
 
     @FXML
     private void eliminar(ActionEvent event) {
+        
+        
     }
-    
+
+    private void sumarSubtotal() {
+        int subtotal = 0;
+        for (DetalleVenta dv : this.tlbventa.getItems()) {
+            subtotal = subtotal + dv.getPrecioUnitario();
+
+        }
+        this.txtsubtotal.setText(subtotal + "");
+    }
+
+    private void restar() {
+        int resta = 0;
+        for (DetalleVenta dv : this.tlbventa.getItems()) {
+            resta = -resta + dv.getPrecioUnitario();
+
+        }
+        this.txtsubtotal.setText(resta + "");
+    }
+
 }

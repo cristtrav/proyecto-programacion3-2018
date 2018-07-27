@@ -42,6 +42,7 @@ public class VentanaPrincipalController implements Initializable {
             t.setText(tituloPestania);
             t.setContent(root);
             this.tabPane.getTabs().add(t);
+            this.tabPane.getSelectionModel().select(t);
         } catch (IOException ex) {
             LOG.log(Level.SEVERE, "Error al cargar modulo", ex);
             Alert errDlg=new Alert(Alert.AlertType.ERROR);
@@ -50,5 +51,10 @@ public class VentanaPrincipalController implements Initializable {
             errDlg.setContentText(ex.getMessage());
             errDlg.showAndWait();
         }
+    }
+
+    @FXML
+    private void onActFacturaVenta(ActionEvent event) {
+        this.cargarModulo("/fxml/factura/facturas.fxml", "Ventas");
     }
 }

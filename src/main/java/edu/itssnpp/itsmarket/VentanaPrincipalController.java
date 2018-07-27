@@ -2,6 +2,7 @@ package edu.itssnpp.itsmarket;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -10,9 +11,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioMenuItem;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
@@ -29,42 +33,34 @@ public class VentanaPrincipalController implements Initializable {
     @FXML
     private RadioMenuItem itempromociones;
     
+    public MenuBar menuBar;
+    @FXML
+    public MenuItem cerrarItem;
+
     private void handleButtonAction(ActionEvent event) {
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+    
+
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("edu.itssnpp_ITSMarket_jar_1.0-SNAPSHOTPU");
         EntityManager em = emf.createEntityManager();
-    }
-
-    private void cargarModulo(String direccionFXML, String tituloPestania) {
-        boolean yaAbierto = false;
-        for (Tab ta : this.tabPane.getTabs()) {
-            if (ta.getText().equals(tituloPestania)) {
-                this.tabPane.getSelectionModel().select(ta);
-                yaAbierto = true;
-                break;
-            }
+        this.cargarModulo("/fxml/login/login.fxml", "Login");
         }
-        if (!yaAbierto) {
-            try {
-                FXMLLoader loader = new FXMLLoader();
-                AnchorPane root = FXMLLoader.load(getClass().getResource(direccionFXML));
-                Tab t = new Tab();
-                t.setText(tituloPestania);
-                t.setContent(root);
-                this.tabPane.getTabs().add(t);
-                this.tabPane.getSelectionModel().select(t);
-            } catch (IOException ex) {
-                LOG.log(Level.SEVERE, "Error al cargar modulo", ex);
-                Alert errDlg = new Alert(Alert.AlertType.ERROR);
-                errDlg.setTitle("Error al cargar módulo");
-                errDlg.setHeaderText("Error al cargar módulo: '" + tituloPestania + "'. Archivo: '" + direccionFXML + "'.");
-                errDlg.setContentText(ex.getMessage());
-                errDlg.showAndWait();
-            }
-        }
-    }}
-
-    
+    public void cargarModulo(String direccionFXML, String tituloPestania) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            AnchorPane root = loader.load(getClass().getResourceAsStream(direccionFXML));
+            Tab t = new Tab();
+            t.setText(tituloPestania);
+            t.setContent(root);
+            this.tabPane.getTabs().add(t);
+        } catch (IOException ex) {
+            LOG.log(Level.SEVERE, "Error al cargar modulo", ex);
+            Alert errDlg = new Alert(Alert.AlertType.ERROR);
+            errDlg.setTitle("Error al cargar módulo");
+            errDlg.setHeaderText("Error al cargar módulo: '" + tituloPestania + "'. Archivo: '" + direccionFXML + "'.");
+            errDlg.setContentText(ex.getMessage());
+            errDlg.showAndWait();
+        }}}

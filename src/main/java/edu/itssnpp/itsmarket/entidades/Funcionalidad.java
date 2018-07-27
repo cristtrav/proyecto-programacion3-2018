@@ -105,6 +105,5 @@ public class Funcionalidad implements Serializable {
     @Override
     public String toString() {
         return "edu.itssnpp.itsmarket.entidades.Funcionalidad[ idfuncionalidad=" + idfuncionalidad + " ]";
-    }
-    
+    }  
 }

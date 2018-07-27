@@ -25,6 +25,8 @@ import javax.persistence.Table;
     @NamedQuery(name = "Empleado.findAll", query = "SELECT e FROM Empleado e")})
 public class Empleado implements Serializable {
 
+   
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,8 +45,9 @@ public class Empleado implements Serializable {
     private String direccion;
     @Column(name = "email")
     private String email;
-    @Column(name = "password")
+     @Column(name = "password")
     private String password;
+
     @JoinTable(name = "permiso", joinColumns = {
         @JoinColumn(name = "empleado", referencedColumnName = "idempleado")}, inverseJoinColumns = {
         @JoinColumn(name = "funcionalidad", referencedColumnName = "idfuncionalidad")})
@@ -206,5 +209,4 @@ public class Empleado implements Serializable {
     public String toString() {
         return "edu.itssnpp.itsmarket.entidades.Empleado[ idempleado=" + idempleado + " ]";
     }
-    
 }

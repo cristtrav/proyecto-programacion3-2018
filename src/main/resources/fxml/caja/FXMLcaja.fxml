@@ -7,5 +7,45 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.itssnpp.itsmarket.caja.FXMLcajaController">
-    
+        <children>
+      <TabPane prefHeight="503.0" prefWidth="780.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="cajaactual" text="Caja Actual">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="368.0" prefWidth="625.0">
+                     <children>
+                        <Button fx:id="abrircaja" layoutY="1.0" mnemonicParsing="false" onAction="#abrircaja" text="Abrir caja" />
+                        <Button fx:id="retirardinero" layoutX="171.0" layoutY="1.0" mnemonicParsing="false" onAction="#retirardinero" text="Retirar dinero" />
+                        <Button fx:id="cerrarcaja" layoutX="81.0" layoutY="1.0" mnemonicParsing="false" onAction="#cerrarcaja" text="Cerrar caja" />
+                        <TableView layoutY="27.0" prefHeight="445.0" prefWidth="777.0">
+                          <columns>
+                            <TableColumn fx:id="montoinicial" prefWidth="112.0" text="Monto inicial" />
+                            <TableColumn fx:id="montofial" prefWidth="102.0" text="Monto final" />
+                              <TableColumn fx:id="nrocaja" text="Nro. caja" />
+                              <TableColumn fx:id="fechahoraapertura" prefWidth="162.0" text="Fecha y hora apertura" />
+                              <TableColumn fx:id="fechahoracierre" prefWidth="164.0" text="Fecha y hora cierre" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="detallemovi" text="Detalles de Movimiento">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tl_Detalle" layoutY="-2.0" prefHeight="472.0" prefWidth="777.0">
+                          <columns>
+                            <TableColumn fx:id="detamonto" prefWidth="82.0" text="Monto" />
+                              <TableColumn fx:id="detanrocaja" prefWidth="103.0" text="Nro de caja" />
+                              <TableColumn fx:id="mediodepago" prefWidth="147.0" text="Medio de pago" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
 </AnchorPane>

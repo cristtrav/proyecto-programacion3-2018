@@ -7,16 +7,16 @@ import javafx.scene.control.ListCell;
 
 public class ProveedoresListCell extends ListCell <Proveedor> {
        @Override
-      protected void updateItem(Proveedor item, boolean empty){
+      protected void updateItem(Proveedor p, boolean empty){
           if(!empty){
               
-              this.setText(item.getNombre());
+              this.setText(p.getNombre());
           }
           else
           {
               this.setText("");
           }
-          super.updateItem(item, empty);
+          super.updateItem(p, empty);
       }
     
 }

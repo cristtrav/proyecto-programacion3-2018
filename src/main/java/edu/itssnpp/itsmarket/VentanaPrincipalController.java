@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
@@ -23,6 +24,8 @@ public class VentanaPrincipalController implements Initializable {
     private Label label;
     @FXML
     private TabPane tabPane;
+    @FXML
+    private MenuItem proveedor;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
@@ -51,4 +54,10 @@ public class VentanaPrincipalController implements Initializable {
             errDlg.showAndWait();
         }
     }
+
+    @FXML
+    private void OnActionproveedor(ActionEvent event) {
+        this.cargarModulo("/fxml/pago_proveedores/pago_proveedor.fxml", "Pago a Proveedores");
+    }
+    
 }

@@ -79,10 +79,10 @@ public class LoginController implements Initializable {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Información");
         alert.setHeaderText("¿Necesita ayuda?");
-        alert.setContentText("Por favor contacte al Administrador.");
+        alert.setContentText("Por favor contacte al Administrador del Sistema.");
         alert.showAndWait();
     }
-    
+    //se ha checkeado el menuBar
     @FXML
     private void accederA(ActionEvent event) {
         this.accederBtn.setDisable(false);
@@ -136,6 +136,5 @@ public class LoginController implements Initializable {
             LOG.log(Level.SEVERE, "Error al obtener algoritmo sha-256", e);
         }
         return null;
-        
     }
 }

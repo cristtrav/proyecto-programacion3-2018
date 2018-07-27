@@ -68,6 +68,16 @@ public class DashboardController implements Initializable {
     private Label lbltotalDeuda;
     @FXML
     private Label hastafechasemanal;
+    @FXML
+    private Label p1;
+    @FXML
+    private Label p2;
+    @FXML
+    private Label p3;
+    @FXML
+    private Label p4;
+    @FXML
+    private Label p5;
 
     /**
      * Initializes the controller class.
@@ -94,6 +104,7 @@ public class DashboardController implements Initializable {
         q.setParameter("fec", new Date());
         q.setParameter("fechainicio", kal.getTime());
         q.setParameter("fechafin", kal.getTime());
+        w.setParameter("fecz", new Date());
         w.setParameter("fechain", kal.getTime());
         w.setParameter("fechafi", kal.getTime());
 
@@ -102,8 +113,8 @@ public class DashboardController implements Initializable {
 
         int totalventas = 0;
         int totalcompras = 0;
-        int totaltotal = 0;
-        
+        int totaltotalseman = 0;
+
         Date fachada1 = new Date();
         Date fachada2 = new Date();
 
@@ -116,11 +127,11 @@ public class DashboardController implements Initializable {
             totalcompras = totalcompras + co.getTotal();
         }
 
-        totaltotal = totalventas - totalcompras;
+        totaltotalseman = totalventas - totalcompras;
 
         lblingresosemanal.setText(totalventas + " ");
         lblegresosemanal.setText(totalcompras + " ");
-        lbltotalsemanal.setText(totaltotal + " ");
+        lbltotalsemanal.setText(totaltotalseman + " ");
 
         desdefechasemanal.setText(fch.format(fachada1));
         hastafechasemanal.setText(fch.format(fachada2));
@@ -131,6 +142,7 @@ public class DashboardController implements Initializable {
         EntityManager em = emf.createEntityManager();
 
         TypedQuery<Venta> q = em.createQuery("SELECT aux FROM Venta aux WHERE aux.fecha >=:fechainicio AND aux.fecha <= :fechafin", Venta.class);
+        TypedQuery<Compra> w = em.createQuery("SELECT auxi FROM Compra auxi WHERE auxi.fecha >=:fechain AND auxi.fecha<=:fechafi", Compra.class);
 
         Calendar kal = new GregorianCalendar();
         kal.add(Calendar.MONTH, 1);
@@ -140,10 +152,17 @@ public class DashboardController implements Initializable {
         q.setParameter("fec", new Date());
         q.setParameter("fechainicio", kal.getTime());
         q.setParameter("fechafin", kal.getTime());
+        w.setParameter("fecz", new Date());
+        w.setParameter("fechain", kal.getTime());
+        w.setParameter("fechafi", kal.getTime());
 
         List<Venta> liz = q.getResultList();
+        List<Compra> lii = w.getResultList();
 
         int totalventasMens = 0;
+        int totalcomprasmens = 0;
+        int totaltotalmens = 0;
+
         Date facha = new Date();
 
         SimpleDateFormat fch = new SimpleDateFormat("dd/mm/yy");
@@ -151,7 +170,15 @@ public class DashboardController implements Initializable {
         for (Venta ve : liz) {
             totalventasMens = totalventasMens + ve.getTotal();
         }
+        for (Compra co : lii) {
+            totalcomprasmens = totalcomprasmens + co.getTotal();
+        }
+        totaltotalmens = totalventasMens - totalcomprasmens;
+
         lblingresomensual.setText(totalventasMens + " ");
+        lblegresomensual.setText(totalcomprasmens + " ");
+        totalingresomensual.setText(totaltotalmens + " ");
+
         fechaMovMensual.setText(fch.format(facha));
     }
 
@@ -160,6 +187,7 @@ public class DashboardController implements Initializable {
         EntityManager em = emf.createEntityManager();
 
         TypedQuery<Venta> q = em.createQuery("SELECT aux FROM Venta aux WHERE aux.fecha >=:fechainicio AND aux.fecha <= :fechafin", Venta.class);
+        TypedQuery<Compra> a = em.createQuery("SELECT auxi FROM Compra auxi WHERE auxi.fecha >=:fechain AND auxi.fecha<=:fechafi", Compra.class);
 
         Calendar kal = new GregorianCalendar();
         int year = kal.get(Calendar.YEAR);
@@ -168,20 +196,36 @@ public class DashboardController implements Initializable {
         kal.set(Calendar.DAY_OF_MONTH, 31);
         kal.set(Calendar.MONTH, 11);
 
+        q.setParameter("fec", new Date());
         q.setParameter("fechainicio", kal.getTime());
         q.setParameter("fechafin", kal.getTime());
+        a.setParameter("fecz", new Date());
+        a.setParameter("fechain", kal.getTime());
+        a.setParameter("fechafi", kal.getTime());
 
         List<Venta> liz = q.getResultList();
+        List<Compra> lio = a.getResultList();
 
-        int totalventasMens = 0;
+        int totalventasanual = 0;
+        int totalcomprasanual = 0;
+        int totaltotalanual = 0;
+
         Date facha = new Date();
 
         SimpleDateFormat fch = new SimpleDateFormat("dd/mm/yy");
 
         for (Venta ve : liz) {
-            totalventasMens = totalventasMens + ve.getTotal();
+            totalventasanual = totalventasanual + ve.getTotal();
         }
-        lblingresoanual.setText(totalventasMens + " ");
+        for (Compra co : lio) {
+            totalventasanual = totalcomprasanual + co.getTotal();
+        }
+        totaltotalanual = totalventasanual - totalcomprasanual;
+
+        lblingresoanual.setText(totalventasanual + " ");
+        lblegresoanual.setText(totalcomprasanual + " ");
+        lbltotalanual.setText(totaltotalanual + " ");
+
         lblanho.setText(fch.format(facha));
 
     }
@@ -191,9 +235,13 @@ public class DashboardController implements Initializable {
         EntityManager em = emf.createEntityManager();
 
         TypedQuery<DetalleVenta> q = em.createQuery("SELECT aux FROM DetalleVenta aux", DetalleVenta.class);
+        
         q.setParameter("DetalleVenta", getClass());
+        
         List<DetalleVenta> lizta = q.getResultList();
+        
         Map<Producto, Double> calculo = new HashMap<>();
+        
         for (DetalleVenta dv : lizta) {
             if (calculo.get(dv.getProducto()) == null) {
                 calculo.put(dv.getProducto(), dv.getCantidad());
@@ -203,7 +251,7 @@ public class DashboardController implements Initializable {
                 calculo.put(dv.getProducto(), ca);
             }
         }
-
+        listaproductos.getChildren();
     }
 
     public void totalVentasDia() {
@@ -238,6 +286,6 @@ public class DashboardController implements Initializable {
         for (Compra co : liza) {
             totalco = totalco + co.getTotal();
         }
-        lbltotalventasdia.setText(totalco + " ");
+        lbltotalDeuda.setText(totalco + " ");
     }
 }

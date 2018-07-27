@@ -163,11 +163,11 @@
             </Label>
             <VBox fx:id="listaproductos" layoutX="18.0" layoutY="66.0" prefHeight="121.0" prefWidth="174.0" spacing="10.0">
                <children>
-                  <Label prefHeight="16.0" prefWidth="142.0" text="BUD 66" />
-                  <Label prefHeight="16.0" prefWidth="142.0" text="Costilla de cerdo" />
-                  <Label prefHeight="16.0" prefWidth="142.0" text="Chorizo Parrilero" />
-                  <Label prefHeight="16.0" prefWidth="142.0" text="Vacio" />
-                  <Label prefHeight="16.0" prefWidth="142.0" text="Mandioca" />
+                  <Label fx:id="p1" prefHeight="16.0" prefWidth="142.0" text="BUD 66" />
+                  <Label fx:id="p2" prefHeight="16.0" prefWidth="142.0" text="Costilla de cerdo" />
+                  <Label fx:id="p3" prefHeight="16.0" prefWidth="142.0" text="Chorizo Parrilero" />
+                  <Label fx:id="p4" prefHeight="16.0" prefWidth="142.0" text="Vacio" />
+                  <Label fx:id="p5" prefHeight="16.0" prefWidth="142.0" text="Mandioca" />
                </children>
             </VBox>
          </children>

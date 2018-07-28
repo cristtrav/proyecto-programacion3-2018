@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -36,6 +38,7 @@ import javax.persistence.TypedQuery;
  */
 public class FXMLcajaController implements Initializable {
 
+    private static final Logger LOG = Logger.getLogger(FXMLcajaController.class.getName());
 
     @FXML
     private Button retirardinero;
@@ -79,9 +82,9 @@ public class FXMLcajaController implements Initializable {
             cerrarcaja.setDisable(true);
             retirardinero.setDisable(true);
             detallemovi.setDisable(true);
-        }else{
-        abrircaja.setDisable(true);
-        
+        } else {
+            abrircaja.setDisable(true);
+
         }
         DettCajas dett = new DettCajas();
 
@@ -113,22 +116,24 @@ public class FXMLcajaController implements Initializable {
 
     @FXML
     private void abrircaja(ActionEvent event) {
-        System.out.println("Abrir caja");
-        //Se crea un dialogo especial para poder obtener el texto del usuario
-//        Parent root = FXMLLoader.load(getClass().getResource("/FXMLAbrirCaja/FXMLabrircaja.fxml"));
-//
-//        Scene scene = new Scene(root);
-//
-//       Stage st=new Stage();
-//       st.setScene(scene);
-//       st.show();
+        try {
+            //Se crea un dialogo especial para poder obtener el texto del usuario
+            Parent root = FXMLLoader.load(getClass().getResource("/FXMLAbrirCaja/FXMLabrircaja.fxml"));
+
+            Scene scene = new Scene(root);
+
+            Stage st = new Stage();
+            st.setScene(scene);
+            st.show();
+        } catch (Exception ex) {
+            LOG.log(Level.SEVERE, "Error al cargar ventana", ex);
+        }
 
 //        EntityManagerFactory emfactory1 = Persistence.createEntityManagerFactory("edu.itssnpp_ITSMarket_jar_1.0-SNAPSHOTPU");
 //        EntityManager entitymanager2 = emfactory1.createEntityManager();
 //        Query query2 = entitymanager2.createQuery("SELECT a FROM MovimientoCaja a WHERE a.empleado=:a");
 //        Object rta = null;
 //        query2.setParameter("a", rta);
-
     }
     //se obtiene la respuesta
 
@@ -138,13 +143,13 @@ public class FXMLcajaController implements Initializable {
 
         Scene scene = new Scene(root);
 
-       Stage st=new Stage();
-       st.setScene(scene);
-       st.show();
+        Stage st = new Stage();
+        st.setScene(scene);
+        st.show();
     }
 
     @FXML
     private void retirardinero(ActionEvent event) {
     }
-    
+
 }

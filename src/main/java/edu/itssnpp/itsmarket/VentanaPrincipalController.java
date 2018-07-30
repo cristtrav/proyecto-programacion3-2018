@@ -56,6 +56,7 @@ public class VentanaPrincipalController implements Initializable {
             errDlg.setHeaderText("Error al cargar módulo: '" + tituloPestania + "'. Archivo: '" + direccionFXML + "'.");
             errDlg.setContentText(ex.getMessage());
             errDlg.showAndWait();
+            //da error al cargar modulo
         }
     }
 

@@ -137,5 +137,8 @@ public class DetalleCompra implements Serializable {
     public String toString() {
         return "edu.itssnpp.itsmarket.entidades.DetalleCompra[ iddetalleCompra=" + iddetalleCompra + " ]";
     }
+    public void setImporte(int i){
+        throw new UnsupportedOperationException("Not supported yet."); //to change body of generated methods, choose Tools | Templates.
+    }
     
 }

@@ -51,4 +51,9 @@ public class VentanaPrincipalController implements Initializable {
             errDlg.showAndWait();
         }
     }
+
+    @FXML
+    private void onActionOnCompra(ActionEvent event) {
+        this.cargarModulo("/fxml/compras/comprasFXML.fxml", "Factura Compras");
+    }
 }

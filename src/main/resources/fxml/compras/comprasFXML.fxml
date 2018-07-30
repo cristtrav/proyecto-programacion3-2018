@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="579.0" prefWidth="834.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.itssnpp.itsmarket.compras.ComprasFXMLController">
+   <children>
+      <Text layoutX="132.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FACTURA DE COMPRA" wrappingWidth="279.7294921875">
+         <font>
+            <Font name="Abyssinica SIL" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="19.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="proveedor">
+         <font>
+            <Font size="16.0" />
+         </font></Text>
+      <Text layoutX="37.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FECHA:" />
+      <Button fx:id="Agregar" layoutX="567.0" layoutY="508.0" mnemonicParsing="false" onAction="#txtagregar" text="Agregar" />
+      <Button fx:id="Eliminar" layoutX="644.0" layoutY="508.0" mnemonicParsing="false" onAction="#txteliminar" text="Eliminar" />
+      <TableView fx:id="tabla" layoutX="10.0" layoutY="187.0" onMousePressed="#SeleccionarProductos" prefHeight="286.0" prefWidth="562.0">
+        <columns>
+          <TableColumn fx:id="Productos" prefWidth="145.0" text="Productos" />
+            <TableColumn fx:id="PrecioUnitario" prefWidth="143.0" text="Precio Unitario" />
+            <TableColumn fx:id="Cantidad" prefWidth="122.0" text="Cantidad" />
+            <TableColumn fx:id="Importe" prefWidth="151.0" text="Importe" />
+        </columns>
+      </TableView>
+      <Text layoutX="546.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PAGO:" wrappingWidth="52.609378814697266" />
+      <Label layoutX="328.0" layoutY="43.0" text="N°00001" />
+      <Text layoutX="586.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRODUCTO:" />
+      <Text layoutX="397.0" layoutY="494.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="382.0" layoutY="493.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subtotal:" />
+      <Text layoutX="384.0" layoutY="526.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IVA:" />
+      <Text layoutX="388.0" layoutY="562.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total:" />
+      <DatePicker fx:id="fecha" layoutX="96.0" layoutY="135.0" />
+      <TextField fx:id="subtotal" layoutX="468.0" layoutY="476.0" prefHeight="26.0" prefWidth="78.0" />
+      <TextField fx:id="iva" layoutX="468.0" layoutY="508.0" prefHeight="26.0" prefWidth="78.0" />
+      <TextField fx:id="total" layoutX="466.0" layoutY="544.0" prefHeight="26.0" prefWidth="82.0" />
+      <Text layoutX="374.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CODIGO DE CAJA: 2341" />
+      <Text layoutX="481.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ESTABLECIMIENTO: 12334" />
+      <Text layoutX="589.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CANTIDAD:" />
+      <TextField fx:id="cantidadCL" layoutX="591.0" layoutY="392.0" prefHeight="26.0" prefWidth="215.0" />
+      <Text layoutX="591.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IMPORTE:" />
+      <TextField fx:id="importeCL" layoutX="588.0" layoutY="460.0" prefHeight="26.0" prefWidth="222.0" />
+      <Button fx:id="modificarBT" layoutX="727.0" layoutY="508.0" mnemonicParsing="false" onAction="#modificar" text="Modificar" />
+      <ComboBox fx:id="comboproducto" layoutX="582.0" layoutY="229.0" prefHeight="26.0" prefWidth="215.0" />
+      <Text layoutX="590.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio Unitario" />
+      <TextField fx:id="Preciounitario" layoutX="591.0" layoutY="317.0" prefHeight="26.0" prefWidth="215.0" />
+      <RadioButton layoutX="622.0" layoutY="165.0" mnemonicParsing="false" text="Contado">
+         <toggleGroup>
+            <ToggleGroup fx:id="pago" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="714.0" layoutY="165.0" mnemonicParsing="false" text="Credito" toggleGroup="$pago" />
+      <ComboBox fx:id="comboproveedor" layoutX="111.0" layoutY="50.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>

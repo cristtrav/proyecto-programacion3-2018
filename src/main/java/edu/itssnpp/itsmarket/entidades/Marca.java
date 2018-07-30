@@ -101,5 +101,9 @@ public class Marca implements Serializable {
     public String toString() {
         return "edu.itssnpp.itsmarket.entidades.Marca[ idmarca=" + idmarca + " ]";
     }
+
+    public void getIdmarca(String a) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

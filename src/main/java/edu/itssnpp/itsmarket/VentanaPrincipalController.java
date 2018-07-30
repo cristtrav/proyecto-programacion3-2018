@@ -38,6 +38,15 @@ public class VentanaPrincipalController implements Initializable {
     public MenuItem cerrarItem;
 
     private void handleButtonAction(ActionEvent event) {
+        System.out.println("You clicked me!");
+        label.setText("Hola mundo!");
+    }
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        this.cargarModulo("/fxml/marcas/Vistamarcas.fxml", "Marcas");
+        this.cargarModulo("/fxml/categoria/Vistacategoria.fxml", "Categoria");
+        this.cargarModulo("/fxml/productos/VistaproductosController.fxml", "Productos");
     }
 
     @Override

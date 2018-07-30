@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.itssnpp.itsmarket.marcas;
+package edu.itssnpp.itsmarket.categoria;
 
-import edu.itssnpp.itsmarket.entidades.Marca;
+import edu.itssnpp.itsmarket.entidades.CategoriaProducto;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.TextField;
@@ -17,13 +17,13 @@ import javax.persistence.Persistence;
  *
  * @author User
  */
-public class Marcaconvertidor extends ListCell<Marca> {
+public class Categoriaconvertidor extends ListCell<CategoriaProducto> {
     private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("edu.itssnpp_ITSMarket_jar_1.0-SNAPSHOTPU");
     private final EntityManager em = emf.createEntityManager();
     String valorAnterior = "";
 
     @Override
-    protected void updateItem(Marca m, boolean e) {
+    protected void updateItem(CategoriaProducto m, boolean e) {
         if (!e) {
             this.setText(m.getNombre());
         } else {
@@ -37,7 +37,7 @@ public class Marcaconvertidor extends ListCell<Marca> {
     public void startEdit() {
         super.startEdit();
         TextField txf = new TextField();
-                    
+        
         txf.focusedProperty().addListener((ObservableValue<? extends Boolean>obs, Boolean oldValue, Boolean newValue)->{
             if(!newValue){
                 this.cancelEdit();
@@ -45,8 +45,8 @@ public class Marcaconvertidor extends ListCell<Marca> {
         });
         
         txf.setOnAction((e)->{
-            Marca m=new Marca();
-            m.setIdmarca(this.getItem().getIdmarca());
+            CategoriaProducto m=new CategoriaProducto();
+            m.setIdcategoriaProducto(this.getItem().getIdcategoriaProducto());
             m.setNombre(((TextField)e.getSource()).getText());
             this.commitEdit(m);
         });
@@ -67,7 +67,7 @@ public class Marcaconvertidor extends ListCell<Marca> {
     }
     
     @Override
-    public void commitEdit(Marca m){
+    public void commitEdit(CategoriaProducto m){
         super.commitEdit(m);
         this.setGraphic(null);
         em.getTransaction().begin();

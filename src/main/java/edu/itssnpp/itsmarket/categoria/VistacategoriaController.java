@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.itssnpp.itsmarket.marcas;
+package edu.itssnpp.itsmarket.categoria;
 
-import edu.itssnpp.itsmarket.entidades.Marca;
+import edu.itssnpp.itsmarket.entidades.CategoriaProducto;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -28,14 +28,14 @@ import javax.persistence.TypedQuery;
  *
  * @author User
  */
-public class VistamarcasController implements Initializable {
+public class VistacategoriaController implements Initializable {
 
     @FXML
     private AnchorPane principal;
     @FXML
     private AnchorPane secundario;
     @FXML
-    private ListView<Marca> lista;
+    private ListView<CategoriaProducto> lista;
     @FXML
     private Button crear;
     @FXML
@@ -53,7 +53,7 @@ public class VistamarcasController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        lista.setCellFactory((ListView<Marca> s) -> new Marcaconvertidor());
+         lista.setCellFactory((ListView<CategoriaProducto> s) -> new Categoriaconvertidor());
         this.listar();
         Platform.runLater(() -> {
             this.principal.widthProperty().addListener((ObservableValue<? extends Number> obs, Number oldValue, Number newValue) -> {
@@ -63,15 +63,13 @@ public class VistamarcasController implements Initializable {
                 this.secundario.setLayoutY((this.principal.getHeight() / 2) - (this.secundario.getHeight() / 2));
             });
         });
-    }
+    }    
 
     @FXML
     private void crear(ActionEvent event) {
-        //Paso 1-Registrar la marca
-        //Pasom 2 actualizar la lista llamando al metodo listar()
         String a = texto.getText();
 
-        Marca t = new Marca();
+        CategoriaProducto t = new CategoriaProducto();
         t.setNombre(a);
 
         em.getTransaction().begin();
@@ -80,12 +78,12 @@ public class VistamarcasController implements Initializable {
 
         this.listar();
         texto.clear();
-
     }
+
 
     @FXML
     private void eliminar(ActionEvent event) {
-        Marca t3 = lista.getSelectionModel().getSelectedItem();
+        CategoriaProducto t3 = lista.getSelectionModel().getSelectedItem();
 
         em.getTransaction().begin();
         em.remove(em.merge(t3));
@@ -93,31 +91,29 @@ public class VistamarcasController implements Initializable {
 
         this.listar();
     }
-
     private void listar() {
         //codigo que consulta a la base de datos y carga en la lista
         this.lista.getItems().clear();
-        TypedQuery<Marca> q = this.em.createQuery("SELECT m FROM Marca m", Marca.class);
-        for (Marca m : q.getResultList()) {
+        TypedQuery<CategoriaProducto> q = this.em.createQuery("SELECT m FROM CategoriaProducto m", CategoriaProducto.class);
+        for (CategoriaProducto m : q.getResultList()) {
             this.lista.getItems().add(m);
 
         }
-
     }
-
     @FXML
     private void buscar(KeyEvent event) {
-        String a = ((TextField)event.getSource()).getText();
+                String a = ((TextField)event.getSource()).getText();
         if (a.isEmpty()) {
             this.listar();
         } else {
             this.lista.getItems().clear();
-            TypedQuery<Marca> q = this.em.createQuery("SELECT m FROM Marca m WHERE LOWER(m.nombre) LIKE :txbusq", Marca.class);
+            TypedQuery<CategoriaProducto> q = this.em.createQuery("SELECT m FROM CategoriaProducto m WHERE LOWER(m.nombre) LIKE :txbusq", CategoriaProducto.class);
             q.setParameter("txbusq", "%" + a.toLowerCase() + "%");
-            for (Marca m : q.getResultList()) {
+            for (CategoriaProducto m : q.getResultList()) {
                 this.lista.getItems().add(m);
 
             }
         }
     }
+    
 }

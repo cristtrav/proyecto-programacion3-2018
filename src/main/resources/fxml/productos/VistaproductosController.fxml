@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="principal" prefHeight="607.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.itssnpp.itsmarket.productos.VistaproductosController">
+   <children>
+      <AnchorPane fx:id="secundario" prefHeight="607.0" prefWidth="912.0">
+         <children>
+            <TableView fx:id="tabla" layoutX="14.0" layoutY="104.0" onMouseClicked="#clickParaModificar" prefHeight="487.0" prefWidth="614.0">
+              <columns>
+                <TableColumn fx:id="codb" prefWidth="125.0" text="COD. DE BARRA" />
+                  <TableColumn fx:id="name" prefWidth="196.0" text="NOMBRE" />
+                <TableColumn fx:id="porcent" prefWidth="73.0" text="IVA" />
+                  <TableColumn fx:id="compra" prefWidth="113.0" text="PRECIO COMPRA" />
+                  <TableColumn fx:id="venta" minWidth="0.0" prefWidth="106.0" text="PRECIO VENTA" />
+              </columns>
+            </TableView>
+            <Text layoutX="384.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRODUCTOS">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+            <TextField fx:id="brnombre" layoutX="139.0" layoutY="73.0" onKeyReleased="#brnombre" prefHeight="25.0" prefWidth="195.0" />
+            <TextField fx:id="brprcompra" layoutX="408.0" layoutY="73.0" onKeyReleased="#brprcompra" prefHeight="25.0" prefWidth="109.0" />
+            <TextField fx:id="brprventa" layoutX="529.0" layoutY="73.0" onKeyReleased="#brprventa" prefHeight="25.0" prefWidth="97.0" />
+            <Text layoutX="76.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BUSCAR" />
+            <Text layoutX="743.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CARGAR" />
+            <VBox layoutX="632.0" layoutY="148.0" prefHeight="327.0" prefWidth="267.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE" />
+                  <TextField fx:id="nombre" prefHeight="25.0" prefWidth="258.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="PRECIO DE COMPRA" />
+                  <TextField fx:id="preciocompra" prefHeight="25.0" prefWidth="258.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="PRECIO DE VENTA" />
+                  <TextField fx:id="precioventa" prefHeight="25.0" prefWidth="258.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="IVA - PORCENTAJE" />
+                  <TextField fx:id="iva" prefHeight="25.0" prefWidth="258.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CODIGO DE BARRAS" />
+                  <TextField fx:id="barras" prefHeight="25.0" prefWidth="258.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="MARCA" />
+                  <ComboBox fx:id="marca" prefHeight="25.0" prefWidth="268.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CATEGORIA" />
+                  <ComboBox fx:id="categoria" prefHeight="25.0" prefWidth="268.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="UNIDAD DE MEDIDA" />
+                  <ComboBox fx:id="unimedida" prefHeight="25.0" prefWidth="268.0" />
+               </children>
+            </VBox>
+            <HBox layoutX="632.0" layoutY="484.0" prefHeight="32.0" prefWidth="267.0">
+               <children>
+                  <Button fx:id="guardar" mnemonicParsing="false" onAction="#guardar" prefHeight="25.0" prefWidth="90.0" text="GUARDAR" />
+                  <Button fx:id="modificar" mnemonicParsing="false" onAction="#modificar" prefHeight="25.0" prefWidth="90.0" text="MODIFICAR" />
+                  <Button fx:id="borrar" mnemonicParsing="false" onAction="#borrar" prefHeight="25.0" prefWidth="90.0" text="BORRAR" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -53,11 +53,10 @@ public class Pago_proveedorController implements Initializable {
         com_proveedor.setCellFactory((ListView<Proveedor> p) -> new ProveedoresListCell());
         com_proveedor.setButtonCell(new ProveedoresListCell());
         
-        colu_factura.setCellValueFactory(new PropertyValueFactory<>("nro_factura"));
+       colu_factura.setCellValueFactory(new PropertyValueFactory<>("nro_factura"));
         colu_fecha.setCellValueFactory(new PropertyValueFactory<>("fecha_pago"));
         colu_monto.setCellValueFactory(new PropertyValueFactory<>("monto_cuota"));
         colu_vencimiento.setCellValueFactory(new PropertyValueFactory<>("fecha_vencimiento"));
-        
        
         
 

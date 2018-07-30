@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.itssnpp.itsmarket.caja.FXMLcajaController">
+<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="769.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.itssnpp.itsmarket.caja.FXMLcajaController">
         <children>
       <TabPane prefHeight="503.0" prefWidth="780.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -38,7 +39,6 @@
                           <columns>
                             <TableColumn fx:id="detamonto" prefWidth="82.0" text="Monto" />
                               <TableColumn fx:id="detanrocaja" prefWidth="103.0" text="Nro de caja" />
-                              <TableColumn fx:id="mediodepago" prefWidth="147.0" text="Medio de pago" />
                           </columns>
                         </TableView>
                      </children>

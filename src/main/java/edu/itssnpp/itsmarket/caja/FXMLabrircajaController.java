@@ -32,7 +32,8 @@ public class FXMLabrircajaController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        montoinicial2.getText();
     }    
 
     @FXML

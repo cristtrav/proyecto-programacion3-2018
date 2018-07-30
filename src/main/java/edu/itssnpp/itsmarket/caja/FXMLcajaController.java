@@ -5,7 +5,9 @@
  */
 package edu.itssnpp.itsmarket.caja;
 
+import static edu.itssnpp.itsmarket.entidades.DetalleCobro_.medioPago;
 import edu.itssnpp.itsmarket.entidades.DetalleMovimientoCaja;
+import edu.itssnpp.itsmarket.entidades.MedioPago;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -46,15 +48,15 @@ public class FXMLcajaController implements Initializable {
     private Button cerrarcaja;
     //Detalle
     @FXML
-    private TableColumn<DettCajas, String> detamonto;
+    private TableColumn<DetalleMovimientoCaja, String> detamonto;
     @FXML
-    private TableColumn<DettCajas, String> detanrocaja;
+    private TableColumn<DetalleMovimientoCaja, String> detanrocaja;
     @FXML
     private Tab detallemovi;
     @FXML
-    private TableView<DettCajas> tl_Detalle;
+    private TableView<DetalleMovimientoCaja> tl_Detalle;
 
-    private final ObservableList<DettCajas> data
+    private final ObservableList<DetalleMovimientoCaja> data
             = FXCollections.observableArrayList();
 
     Integer x = 0;
@@ -72,8 +74,6 @@ public class FXMLcajaController implements Initializable {
     private TableColumn<?, ?> fechahoraapertura;
     @FXML
     private TableColumn<?, ?> fechahoracierre;
-    @FXML
-    private TableColumn<?, ?> mediodepago;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -86,11 +86,10 @@ public class FXMLcajaController implements Initializable {
             abrircaja.setDisable(true);
 
         }
-        DettCajas dett = new DettCajas();
+        DetalleMovimientoCaja dett = new DetalleMovimientoCaja();
 
-        dett.setMedioPago("asd");
-        dett.setMonto("asd");
-        dett.setNroCaja("asd");
+        dett.setMedioPago((MedioPago) medioPago);
+        dett.setMonto(x);
         data.add(dett);
 
         detamonto.setCellValueFactory(
@@ -107,9 +106,7 @@ public class FXMLcajaController implements Initializable {
         TypedQuery query = entitymanager.createQuery("SELECT d FROM DetalleMovimientoCaja d", DetalleMovimientoCaja.class);
         List<DetalleMovimientoCaja> list = query.getResultList();
         for (DetalleMovimientoCaja objeto : list) {
-            dett.setMonto(String.valueOf(objeto.getMonto()));
-            dett.setNroCaja(String.valueOf(objeto.getMovimientoCaja().getNroCaja()));
-            dett.setMedioPago(objeto.getMedioPago().getNombre());
+            
         }
 
     }
@@ -118,7 +115,7 @@ public class FXMLcajaController implements Initializable {
     private void abrircaja(ActionEvent event) {
         try {
             //Se crea un dialogo especial para poder obtener el texto del usuario
-            Parent root = FXMLLoader.load(getClass().getResource("/FXMLAbrirCaja/FXMLabrircaja.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml.caja/FXMLabrircaja.fxml"));
 
             Scene scene = new Scene(root);
 
@@ -139,7 +136,7 @@ public class FXMLcajaController implements Initializable {
 
     @FXML
     private void cerrarcaja(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxmlcerrarcaja/FXMLcerrarcaja.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fmxl.caja/FXMLcerrarcaja.fxml"));
 
         Scene scene = new Scene(root);
 
@@ -150,6 +147,7 @@ public class FXMLcajaController implements Initializable {
 
     @FXML
     private void retirardinero(ActionEvent event) {
+   
     }
 
 }
